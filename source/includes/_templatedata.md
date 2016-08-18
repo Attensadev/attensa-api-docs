@@ -8,7 +8,7 @@ All the data that is available to templates is provided by the BriefingRenderer 
 
 These are all the items in the briefing, with standard item data, plus the following:
 
-* `{{title}}`: The title of the item.
+* `{{title}}`: The title text of the item.
 * `{{link}}`: A link to the content of the item in the Attensa reading view.
 * `{{sourceLink}}`: A link to the content's original source.
 * `{{author}}`: The full name of the author of the item. 
@@ -25,7 +25,7 @@ These are all the items in the briefing, with standard item data, plus the follo
 * `{{indexedStreams}}`: The first level of non-empty streams under a topic, with the following:
 * `{{streamID}}`: Returns the stream's ID.
 * `{{streamTitle}}`: The title of the stream.
-* `{{streamDescription}}`: A link to the content of the item in the Attensa reading view.
+* `{{streamDescription}}`: This will display the stream description.
 
 ### `briefing` : 
 
@@ -33,6 +33,7 @@ These are all the items in the briefing, with standard item data, plus the follo
 * `{{briefing.description}}`: The briefing's description.
 * `{{viewAsHTML}}`: A link to the HTML version of the briefing inside of Attensa.
 * `{{totalNewItems}}`: The count of items added since the last briefing was sent. 
+* `{{linkResolverLink}}`: Provides a link resolver link for the article if one exists.
 
 ### Topic View:
 
