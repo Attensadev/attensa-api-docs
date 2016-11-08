@@ -425,6 +425,31 @@ Status code `202`
 
 <aside class="notice">Item creation is asynchronous.  While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
 
+## POST /streams/{streamId}/items/{itemId}/attachments
+
+```shell
+curl -u username:password \
+     -H "Content-Type: multipart/form-data" \
+     -X POST \
+     -F "attachment=@<path_to_target_file>" \
+     https://api.attensa.net/streams/{streamId}/items/{itemId}/attachments
+```
+> Status code 200 with response as follows:
+
+```json
+{"result":"Attachment successfully added to Item."}
+```
+
+Add a file to an item as an attachment.
+
+### Request
+
+`POST https://api.attensa.net/streams/{streamId}/items/{itemId}/attachments`
+
+### Response
+
+Status code `200`
+
 ## POST /streams/{streamId}/briefing
 
 ```shell
