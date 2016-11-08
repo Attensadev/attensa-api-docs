@@ -2167,6 +2167,30 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <aside class="notice">Item creation is asynchronous.  While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
 
+<h2 id="post-streams-streamid-items-itemid-attachments">POST /streams/{streamId}/items/{itemId}/attachments</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -F <span class="s2">"attachment=@&lt;path_to_target_file&gt;"</span> <span class="se">\</span>
+     https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/items/<span class="o">{</span>itemId<span class="o">}</span>/attachments
+</code></pre>
+
+<blockquote>
+<p>Status code 200 with response as follows:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span><span class="s2">"Attachment successfully added to Item."</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Add a file to an item as an attachment.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.net/streams/{streamId}/items/{itemId}/attachments</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
 <h2 id="post-streams-streamid-briefing">POST /streams/{streamId}/briefing</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
