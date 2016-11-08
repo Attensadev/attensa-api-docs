@@ -367,7 +367,7 @@ curl -u username:password \
        "timeZone": "Europe/Paris",
        "status": "ACTIVE"
      }' \
-     https://api.attensa.net/users
+     https://api.attensa.net/users/{userId}
 ```
 
 > The above command returns JSON structured like this:
