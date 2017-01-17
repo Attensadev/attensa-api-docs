@@ -3587,7 +3587,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <h2 id="briefing-variables">Briefing Variables</h2>
 
-<p>All the data that is available to templates is provided by the BriefingRenderer class.</p>
+<p>Briefing data helpers available to templates.</p>
 
 <h3 id="items-gt-item"><code class="prettyprint">items</code> &gt; <code class="prettyprint">item</code> :</h3>
 
@@ -3599,34 +3599,45 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <li><code class="prettyprint">{{sourceLink}}</code>: A link to the content&rsquo;s original source.</li>
 <li><code class="prettyprint">{{linkResolverLink}}</code>: Provides a link resolver link for the article if one exists.</li>
 <li><code class="prettyprint">{{author}}</code>: The full name of the author of the item. </li>
-<li><code class="prettyprint">{{defaultDescription}}</code>: This will display the full text of the item description.</li>
-<li><code class="prettyprint">{{cleanDescription}}</code>: This will display the same text as defaultDescription with any HTML stripped off.</li>
-<li><code class="prettyprint">{{shortDescription}}</code>: This will display the same text as cleanDescription with a limitation to 200 characters.</li>
-<li><code class="prettyprint">{{publishedDate}}</code>: This will display the item’s published date.</li>
-</ul>
-
-<h3 id="stream"><code class="prettyprint">stream</code> :</h3>
-
-<ul>
-<li><code class="prettyprint">{{stream.followersCount}}</code>: The number of followers following that a stream.</li>
-<li><code class="prettyprint">{{stream.publishedDate}}</code>: The stream&rsquo;s published date.</li>
-<li><code class="prettyprint">{{itemsCount}}</code>: This will display the amount of items in a stream. </li>
-<li><code class="prettyprint">{{indexedStreams}}</code>: The first level of non-empty streams under a topic, with the following:</li>
-<li><code class="prettyprint">{{streamID}}</code>: Returns the stream&rsquo;s ID.</li>
-<li><code class="prettyprint">{{streamTitle}}</code>: The title of the stream.</li>
-<li><code class="prettyprint">{{streamDescription}}</code>: This will display the stream&rsquo;s description.</li>
+<li><code class="prettyprint">{{defaultDescription}}</code>: The full text of the item description.</li>
+<li><code class="prettyprint">{{cleanDescription}}</code>: The same text as defaultDescription with any HTML stripped off.</li>
+<li><code class="prettyprint">{{shortDescription}}</code>: The same text as cleanDescription with a limitation to 200 characters.</li>
+<li><code class="prettyprint">{{publishedDate}}</code>: The item&rsquo;s published date.</li>
 </ul>
 
 <h3 id="briefing"><code class="prettyprint">briefing</code> :</h3>
 
 <ul>
+<li><code class="prettyprint">{{briefing.briefingTitle}}</code>: The title text for the briefing.</li>
 <li><code class="prettyprint">{{briefing.templateTitle}}</code>: The title text for the briefing&rsquo;s template. </li>
 <li><code class="prettyprint">{{briefing.description}}</code>: The briefing&rsquo;s description.</li>
 <li><code class="prettyprint">{{viewAsHTML}}</code>: A link to the HTML version of the briefing inside of Attensa.</li>
 <li><code class="prettyprint">{{totalNewItems}}</code>: The count of items added since the last briefing was sent. </li>
+<li><code class="prettyprint">{{startDate}}</code>: The start date and time of the briefing.</li>
+<li><code class="prettyprint">{{endDate}}</code>: The end date and time of the briefing.</li>
+<li><code class="prettyprint">{{recipientUserId}}</code>: The userId of the recipient of the briefing email.</li>
+<li><code class="prettyprint">{{hostName}}</code>: The hostName of the tenancy sending the briefing.</li>
+<li><code class="prettyprint">{{indexedStreams}}</code>: The first level of non-empty streams in a briefing, with the following:</li>
+<li><code class="prettyprint">{{streamId}}</code>: The indexed stream&rsquo;s Id.</li>
+<li><code class="prettyprint">{{streamTitle}}</code>: The indexed stream&rsquo;s title.</li>
+<li><code class="prettyprint">{{streamDescription}}</code>: The indexed stream&rsquo;s description.</li>
+<li><code class="prettyprint">{{itemsCount}}</code>: Count of items in the indexed stream.</li>
+<li><code class="prettyprint">{{items}}</code>: All items in the indexed stream.</li>
 </ul>
 
-<h3 id="topic-view">Topic View:</h3>
+<h2 id="top-level-topic-variables-available-to-topic-briefings-only">Top level Topic Variables available to Topic Briefings only</h2>
+
+<p>Topic data helpers available to Topic Briefings&rsquo; templates only. Standalone Briefings do not have a top level topic.</p>
+
+<h3 id="stream"><code class="prettyprint">stream</code> :</h3>
+
+<ul>
+<li><code class="prettyprint">{{stream.title}}</code>: Thop level Topic&rsquo;s title.</li>
+<li><code class="prettyprint">{{stream.description}}</code>: The top level Topic&rsquo;s description</li>
+<li><code class="prettyprint">{{stream.followersCount}}</code>: The number of followers following that a stream.</li>
+</ul>
+
+<h3 id="topic-views-for-topic-briefings">Topic Views for Topic Briefings:</h3>
 
 <ul>
 <li><code class="prettyprint">{{topicView}}</code>: A link to the topic view.</li>
