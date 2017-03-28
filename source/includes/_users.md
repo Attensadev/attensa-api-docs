@@ -146,7 +146,7 @@ curl -u username:password \
 }
 ```
 
-This endpoint retrives a list of streams that a user is following
+This endpoint retrives a list of streams that a user is following.
 
 ### Request
 
@@ -165,7 +165,7 @@ term | A search term to narrow the list of streams returned | No | String | `nul
 
 Status code `200`
 
-See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
 
 Four properties are added to the normal stream objects returned in the `streams` array that specify the user's relationship with the stream:
 
