@@ -116,7 +116,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get a paged list of all enabled briefings</p>
+<p>Get a paged list of all enabled briefings.</p>
 
 <h3 id="request">Request</h3>
 
@@ -153,7 +153,7 @@
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.</p>
 
 <h2 id="get-briefings-briefingid">GET /briefings/{briefingId}</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>
@@ -199,8 +199,8 @@
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-      </span><span class="s2">"source"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.example.com/example"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -241,11 +241,11 @@
   </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/briefings/546e17fcd4c88ef1547b4f33"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
-  </span><span class="err">"</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific briefing</p>
+<p>This endpoint retrieves a specific briefing.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1576,7 +1576,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific stream</p>
+<p>This endpoint retrieves a specific stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1630,7 +1630,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get briefing information for a specific stream</p>
+<p>Get briefing information for a specific stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1682,7 +1682,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get users that are following/subscribed to a specific stream</p>
+<p>Get users that are following/subscribed to a specific stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -2139,7 +2139,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Create a briefing and schedule for an existing stream</p>
+<p>Create a briefing and schedule for an existing stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -2435,7 +2435,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 emtpy body returned on success</p>
 </blockquote>
 
-<p>Delete an existing stream from the system.  All users will be un-followed and un-subscribed from the stream when it is deleted.</p>
+<p>Delete an existing stream from the system. All users will be un-followed and un-subscribed from the stream when it is deleted.</p>
 
 <aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
 
