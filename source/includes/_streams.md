@@ -140,7 +140,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}
 }
 ```
 
-This endpoint retrieves a specific stream
+This endpoint retrieves a specific stream.
 
 ### Request
 
@@ -195,7 +195,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/briefing
 }
 ```
 
-Get briefing information for a specific stream
+Get briefing information for a specific stream.
 
 ### Request
 
@@ -248,7 +248,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/users
 }
 ```
 
-Get users that are following/subscribed to a specific stream
+Get users that are following/subscribed to a specific stream.
 
 ### Request
 
@@ -515,7 +515,7 @@ curl -u username:password \
 }
 ```
 
-Create a briefing and schedule for an existing stream
+Create a briefing and schedule for an existing stream.
 
 ### Request
 
@@ -638,7 +638,7 @@ curl -u username:password \
 ```
 > 204 emtpy body returned on success
 
-Delete an existing stream from the system.  All users will be un-followed and un-subscribed from the stream when it is deleted.
+Delete an existing stream from the system. All users will be un-followed and un-subscribed from the stream when it is deleted.
 
 <aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
 

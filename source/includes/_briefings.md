@@ -53,7 +53,7 @@ curl -u username:password \
 }
 ```
 
-Get a paged list of all enabled briefings
+Get a paged list of all enabled briefings.
 
 ### Request
 
@@ -70,7 +70,7 @@ rows | Number of briefings in each page | No | Integer | 20
 
 Status code `200`
 
-See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
 
 
 ## GET /briefings/{briefingId}
@@ -118,7 +118,7 @@ curl -u username:password https://api.attensa.net/briefings/{briefingId}
       "_links": {
         "self": "https://api.attensa.net/streams/546e17fcd4c67da2547f5b61",
         "owner": "https://api.attensa.net/users/55414a36e4b0436b6280e668"
-      }
+      },
       "source": {
         "uri": "http://rss.example.com/example"
       }
@@ -160,11 +160,11 @@ curl -u username:password https://api.attensa.net/briefings/{briefingId}
   "_links": {
     "self": "https://api.attensa.net/briefings/546e17fcd4c88ef1547b4f33",
     "owner": "https://api.attensa.net/users/55414a36e4b0436b6280e668"
-  "}
+  }
 }
 ```
 
-This endpoint retrieves a specific briefing
+This endpoint retrieves a specific briefing.
 
 ### Request
 
