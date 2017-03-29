@@ -181,7 +181,7 @@
     </span><span class="p">},</span><span class="w">
   </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54b57b0ae4b0ec83add26494"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"54c67d6ee4b07a480d551f5c"</span><span class="w">
       </span><span class="p">],</span><span class="w">
@@ -250,6 +250,451 @@
 <h3 id="request">Request</h3>
 
 <p><code class="prettyprint">GET https://api.attensa.net/briefings/{briefingId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
+<h2 id="post-briefings">POST /briefings</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "briefingTitle": "Briefing created via API",
+       "templateTitle": "Special per briefing message!",
+       "subject": "Your Daily Briefing",
+       "description": "A briefing providing daily news updates.",
+       "ownerId": "577699bae4b0caf6efc3fdfc",
+       "schedule": {
+           "startDate": "2017-04-13",
+           "sendHour": 10,
+           "sendMinute": 30,
+           "frequency": "DAILY",
+           "timeZone": "US/Pacific"
+    },
+    "templateId": "54b58250e4b0ec83add2661e",
+    "streamIds": ["546e17fcd4c67da2547f5b61", "585206dbe4b06537eec79b04"]
+}'</span> <span class="se">\</span>
+     https://api.attensa.net/briefings
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"586ee582e4b05458263553cf"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"briefingTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Briefing created via API"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"templateTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Special per briefing message!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Daily Briefing"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A briefing providing daily news updates."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"577699bae4b0caf6efc3fdfc"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54b58250e4b0ec83add2661e"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"54c67d6ee4b07a480d551f5c"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">373</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.example.com/example"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"585206dbe4b06537eec79b04"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 02"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53dfb536e4b05bc54063f5f4"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"55c100cce4b019471b4dbfa3"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15296</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"substreams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5568efd9e4b07710a6f08f7d"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example source stream Title"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"559e9e52e4b09bde8ba71aad"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Topic Title"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/585206dbe4b06537eec79b04"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/53dfb536e4b05bc54063f5f4"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-13"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAILY"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/briefings/586ee582e4b05458263553cf"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/577699bae4b0caf6efc3fdfc"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Create a new briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.net/briefings</code></p>
+
+<h3 id="json-request-properties">JSON request properties</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>briefingTitle</td>
+<td>Briefing Title</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>templateTitle</td>
+<td>Custome string for use in templates.</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>description</td>
+<td>Long description of the briefing</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>ownerId</td>
+<td>User id of briefing owner</td>
+<td>Yes</td>
+<td>String of valid user id</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>Subject line used for sending briefing email</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>templateId</td>
+<td>Email template to use</td>
+<td>No</td>
+<td>String of valid template id</td>
+<td>id of default template</td>
+</tr>
+<tr>
+<td>streamIds</td>
+<td>Stream IDs to include in the briefing</td>
+<td>No</td>
+<td>[String]</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>schedule:startDate</td>
+<td>Day to start sending the briefing</td>
+<td>Yes</td>
+<td><code class="prettyprint">YYYY-MM-DD</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:stopDate</td>
+<td>Day to stop sending the briefing. Omit to never stop.</td>
+<td>No</td>
+<td><code class="prettyprint">YYYY-MM-DD</code></td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>schedule:sendHour</td>
+<td>Hour of day to send briefing</td>
+<td>Yes</td>
+<td>Integer <code class="prettyprint">0-23</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:sendMinute</td>
+<td>Minute of hour to send briefing</td>
+<td>Yes</td>
+<td>Integer <code class="prettyprint">0-59</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:frequency</td>
+<td>Frequency to send briefing</td>
+<td>Yes</td>
+<td><code class="prettyprint">DAILY</code>, <code class="prettyprint">WEEKLY</code>, <code class="prettyprint">MONTHLY</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:interval</td>
+<td>Interval of frequency to send.  e.g. send every <code class="prettyprint">&lt;interval&gt;</code> days</td>
+<td>No</td>
+<td>Integer <code class="prettyprint">1-31</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>schedule:sendDays</td>
+<td>Array of days of the week to send briefing on</td>
+<td>For WEEKLY frequency</td>
+<td>[<code class="prettyprint">SU</code>,<code class="prettyprint">MO</code>,<code class="prettyprint">TU</code>,<code class="prettyprint">WE</code>,<code class="prettyprint">TH</code>,<code class="prettyprint">FR</code>,<code class="prettyprint">SA</code>]</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:timeZone</td>
+<td>Timezone of requested send time</td>
+<td>Yes</td>
+<td><a href="#time-zones">Supported time zone string</a></td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">201</code></p>
+
+<h2 id="put-streams-streamid">PUT /streams/{streamId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "briefingTitle": "Updated Briefing Example",
+       "templateTitle": "New special per briefing message!",
+       "subject": "Your Daily Updated Briefing",
+       "description": "An updatged briefing providing daily news updates.",
+       "ownerId": "577699bae4b0caf6efc3fdfc",
+       "schedule": {
+           "sendHour": 11,
+           "sendMinute": 30,
+           "frequency": "WEEKLY",
+           "sendDays":["MO", "WE", "FR"],
+           "timeZone": "US/Pacific"
+    },
+    "templateId": "54eba226e4b050dd8b9c1099",
+    "streamIds": ["546e17fcd4c67ef6622d3b22"]
+}'</span> <span class="se">\</span>
+     https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"586ee582e4b05458263553cf"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"briefingTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated Briefing Example"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"templateTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New special per briefing message!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Daily Updated Briefing"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An updatged briefing providing daily news updates."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"577699bae4b0caf6efc3fdfc"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54eba226e4b050dd8b9c1099"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67ef6622d3b22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Stream"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"54c67d6ee4b07a480d551f5c"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"example"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"substreams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56d716c0e4b0372417948d9c"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New target topic"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67ef6622d3b22"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://rss.example.com/example"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-13"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEEKLY"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sendDays"</span><span class="p">:[</span><span class="s2">"MO"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/briefings/586ee582e4b05458263553cf"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/577699bae4b0caf6efc3fdfc"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Update an existing briefing. Updates are applied in a incremental PATCH-like manner, so the entire briefing resource does not need to be supplied, only the properties that are changing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT https://api.attensa.net/briefings/{briefingId}</code></p>
+
+<h3 id="json-body-request-properties">JSON body request properties</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>briefingTitle</td>
+<td>Briefing Title</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>templateTitle</td>
+<td>Custome string for use in templates.</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>description</td>
+<td>Long description of the briefing</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>ownerId</td>
+<td>User id of briefing owner</td>
+<td>Yes</td>
+<td>String of valid user id</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>Subject line used for sending briefing email</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>templateId</td>
+<td>Email template to use</td>
+<td>No</td>
+<td>String of valid template id</td>
+<td>id of default template</td>
+</tr>
+<tr>
+<td>streamIds</td>
+<td>Stream IDs to include in the briefing</td>
+<td>No</td>
+<td>[String]</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>schedule:startDate</td>
+<td>Day to start sending the briefing</td>
+<td>Yes</td>
+<td><code class="prettyprint">YYYY-MM-DD</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:sendHour</td>
+<td>Hour of day to send briefing</td>
+<td>Yes</td>
+<td>Integer <code class="prettyprint">0-23</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:sendMinute</td>
+<td>Minute of hour to send briefing</td>
+<td>Yes</td>
+<td>Integer <code class="prettyprint">0-59</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:frequency</td>
+<td>Frequency to send briefing</td>
+<td>Yes</td>
+<td><code class="prettyprint">DAILY</code>, <code class="prettyprint">WEEKLY</code>, <code class="prettyprint">MONTHLY</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:interval</td>
+<td>Interval of frequency to send.  e.g. send every <code class="prettyprint">&lt;interval&gt;</code> days</td>
+<td>No</td>
+<td>Integer <code class="prettyprint">1-31</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>schedule:sendDays</td>
+<td>Array of days of the week to send briefing on</td>
+<td>For WEEKLY frequency</td>
+<td>[<code class="prettyprint">SU</code>,<code class="prettyprint">MO</code>,<code class="prettyprint">TU</code>,<code class="prettyprint">WE</code>,<code class="prettyprint">TH</code>,<code class="prettyprint">FR</code>,<code class="prettyprint">SA</code>]</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>schedule:timeZone</td>
+<td>Timezone of requested send time</td>
+<td>Yes</td>
+<td><a href="#time-zones">Supported time zone string</a></td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">All streams can be removed by sending an empty streamIds array (<code>"streamIds": []</code>)</aside>
 
 <h3 id="response">Response</h3>
 
@@ -2291,7 +2736,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Update an existing stream.  Updates are applied in a incremental PATCH-like manner, so the entire stream resource does not need to be supplied, only the properties that are changing.</p>
+<p>Update an existing stream. Updates are applied in a incremental PATCH-like manner, so the entire stream resource does not need to be supplied, only the properties that are changing.</p>
 
 <h3 id="request">Request</h3>
 
