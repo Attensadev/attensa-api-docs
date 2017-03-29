@@ -547,7 +547,7 @@ Status code `200`
 ```shell
 curl -u username:password \
      -H "Content-Type: application/json" \
-     -X POST \
+     -X PUT \
      -d '{
        "title": "Test Stream 01",
        "description": "Description 01",

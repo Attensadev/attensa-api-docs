@@ -318,7 +318,7 @@ Status code `201`
 ```shell
 curl -u username:password \
      -H "Content-Type: application/json" \
-     -X POST \
+     -X PUT \
      -d '{
        "briefingTitle": "Updated Briefing Example",
        "templateTitle": "New special per briefing message!",
