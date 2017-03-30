@@ -547,7 +547,7 @@ Status code `200`
 ```shell
 curl -u username:password \
      -H "Content-Type: application/json" \
-     -X POST \
+     -X PUT \
      -d '{
        "title": "Test Stream 01",
        "description": "Description 01",
@@ -595,7 +595,7 @@ curl -u username:password \
 }
 ```
 
-Update an existing stream.  Updates are applied in a incremental PATCH-like manner, so the entire stream resource does not need to be supplied, only the properties that are changing.
+Update an existing stream. Updates are applied in a incremental PATCH-like manner, so the entire stream resource does not need to be supplied, only the properties that are changing.
 
 ### Request
 
