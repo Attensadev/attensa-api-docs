@@ -90,6 +90,8 @@ source.search | Term used for search based stream types (TWITTER_SEARCH, etc) | 
 source.uri | Uri of RSS feed for RSS streams | No | String | `null`
 term | A search term to narrow the list of streams returned | No | String | `null`
 type | Filter results to a specific stream type | No | [searchable stream type](#stream-types) | `null`
+tagIds | Filter results to streams with at least one of the tagIds | No | comma separated ID list | `null`
+categoryIds | Filter results to streams with at least one of the categoryIds | No | comma separated ID list | `null`
 
 ### Response
 
