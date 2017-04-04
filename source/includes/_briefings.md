@@ -429,3 +429,24 @@ schedule:timeZone | Timezone of requested send time | Yes | [Supported time zone
 ### Response
 
 Status code `200`
+
+## DELETE /briefings/{briefingId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/briefings/{briefingId}
+```
+> 204 emtpy body returned on success
+
+Delete an existing briefing from the system. All users will be unsubscribed from the briefing when it is deleted.
+
+<aside class="warning">Use this endpoint with care! There is no way to undo this action from the API.</aside>
+
+### Request
+
+`DELETE https://api.attensa.net/briefings/{briefingId}`
+
+### Response
+
+Status code `204` with empty body
