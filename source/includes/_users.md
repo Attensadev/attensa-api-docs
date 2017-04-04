@@ -307,6 +307,34 @@ status | User's status | Yes | ACTIVE, INVITED or INACTIVE | ACTIVE
 
 Status code `201`
 
+## POST /users/{userId}/briefings
+
+```shell
+curl -u username:password \
+     -H "Content-Type: application/json" \
+     -X POST \
+     -d '{
+       "briefingId": "546e17fcd4c88ef1547b4f33"
+     }' \
+     https://api.attensa.net/users/{userId}/briefings
+```
+
+Have a user follow a stream and optionally subscribe to the streams briefing.
+
+### Request
+
+`POST https://api.attensa.com/users/{userId}/briefings`
+
+### Request body parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+briefingId | The stream for the user to follow | Yes | String | n/a
+
+### Response
+
+Status code `204` with empty body
+
 ## POST /users/{userId}/streams
 
 ```shell
@@ -332,34 +360,6 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 briefingId | The briefing for the user to subscribe to | Yes | String | n/a
 subscribeToBriefing | Subscribe the user to the briefing | No | Boolean | `false`
-
-### Response
-
-Status code `204` with empty body
-
-## POST /users/{userId}/briefings
-
-```shell
-curl -u username:password \
-     -H "Content-Type: application/json" \
-     -X POST \
-     -d '{
-       "briefingId": "546e17fcd4c88ef1547b4f33"
-     }' \
-     https://api.attensa.net/users/{userId}/briefings
-```
-
-Have a user follow a stream and optionally subscribe to the streams briefing.
-
-### Request
-
-`POST https://api.attensa.com/users/{userId}/briefings`
-
-### Request body parameters
-
-Parameter | Description | Required | Format | Default
---------- | ----------- | -------- | ------ | -------
-briefingId | The stream for the user to follow | Yes | String | n/a
 
 ### Response
 
@@ -442,6 +442,24 @@ This endpoint deletes an existing user
 
 Status code `204`, empty body
 
+## DELETE /user/{userId}/briefings/{briefingId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/users/{userId}/briefings/{briefingId}
+```
+
+This endpoint unsubscribes a user from a briefing.
+
+### Request
+
+`DELETE https://api.attensa.com/users/{userId}/briefings/{briefingId}`
+
+### Response
+
+Status code `204`, empty body
+
 ## DELETE /user/{userId}/streams/{streamId}
 
 ```shell
@@ -450,7 +468,7 @@ curl -u username:password \
      https://api.attensa.net/users/{userId}/streams/{streamId}
 ```
 
-This endpoint unfollows and unsubscribes a user from a stream.
+This endpoint unfollows a user from a stream.
 
 ### Request
 
