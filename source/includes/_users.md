@@ -159,6 +159,8 @@ Parameter | Description | Required | Format | Default
 page | The page number to retrieve | No | Integer | 0
 rows | Number of users in each page | No | Integer | 20
 term | A search term to narrow the list of streams returned | No | String | `null`
+tagIds | Filter results to streams with at least one of the tagIds | No | comma separated ID list | `null`
+categoryIds | Filter results to streams with at least one of the categoryIds | No | comma separated ID list | `null`
 
 
 ### Response
