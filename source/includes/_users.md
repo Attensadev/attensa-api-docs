@@ -201,47 +201,27 @@ curl -u username:password \
   },
   "briefings": [
     {
-      "subject": "My email subject line!",
-      "description": "Some special message used by template.",
+      "id": "546e17fcd4c88ef1547b4f33",
+      "ownerId": "55414a36e4b0436b6280e668",
+      "briefingTitle": "Daily Briefing Example",
+      "templateTitle": "Title that can be used inside Templates via helpers",
+      "description": "Daily news sent ever day.",
+      "subject": "Your Daily News!",
+      "templateId": "54eba226e4b050dd8b9c1099",
+      "subscriberCount": 0,
       "schedule": {
-          "startDate": "2015-07-30",
-          "stopDate": "2015-08-31",
-          "sendHour": "15",
-          "sendMinute": "30",
-          "frequency": "WEEKLY",
-          "interval": 1,
-          "sendDays":["MO","TU", "WE", "TH", "FR"],
-          "timeZone": "US/Pacific"
+        "frequency": "DAILY",
+        "interval": 2,
+        "sendHour": 10,
+        "sendMinute": 30,
+        "startDate": "2017-03-29",
+        "timeZone": "US/Pacific"
       },
-      "templateId": "54b58250e4b0ec83add2661e",
-      "stream": {
-        "id": "546e17fcd4c67da2547f5b61",
-        "title": "Test Stream 01",
-        "ownerId": "55414a36e4b0436b6280e668",
-        "description" : "Description 01",
-        "type": "RSS",
-        "source": {
-            "uri": "http://slashdot.org/rss"
-        },
-        "emailPostingEnabled": false,
-        "openForReading": true,
-        "openForPosting": false,
-        "published": true,
-        "streamEmailAddress": "test.stream.01@email.attensa.net",
-        "rssEnabled": false,
-        "tagIds": ["54da78488ab02386a4658eee"],
-        "catgoryIds" : ["55414a36e4b0436b6280e668", "823hg4asf34b0436b6280e668"],
-        "itemsCount": 0,
-        "followersCount": 0,
-        "userIsFollowing": true,
-        "userIsFollowingViaGroup": false,
-        "userIsSubscribed": true,
-        "userIsSubscribedViaGroup": false,
-        "_links": {
-          "self": "https://api.attensa.net/streams/546e17fcd4c67da2547f5b61",
-          "owner": "https://api.attensa.net/users/55414a36e4b0436b6280e668"
-        }
-      }
+      "streamIds": [
+        "55fae1c6e4b0efbbd6062867",
+        "585206dbe4b06537eec79b04",
+        "55e4e635e4b00de911f2259a"
+      ]
     }
   ]
 }
@@ -266,13 +246,6 @@ rows | Number of users in each page | No | Integer | 20
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
-
-Four properties are added to the normal stream objects returned in briefings array that specify the user's relationship with the stream:
-
-* userIsFollowing
-* userIsFollowingViaGroup
-* userIsSubscribed
-* userIsSubscribedViaGroup
 
 ## POST /users
 
@@ -340,7 +313,7 @@ curl -u username:password \
      -X POST \
      -d '{
        "streamId": "546e17fcd4c67da2547f5b61",
-       "subscribeToBriefing": true,
+       "subscribeToBriefing": false
      }' \
      https://api.attensa.net/users/{userId}/streams
 ```
@@ -355,8 +328,36 @@ Have a user follow a stream and optionally subscribe to the streams briefing.
 
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
-streamId | The stream for the user to follow | Yes | String | n/a
+briefingId | The briefing for the user to subscribe to | Yes | String | n/a
 subscribeToBriefing | Subscribe the user to the briefing | No | Boolean | `false`
+
+### Response
+
+Status code `204` with empty body
+
+## POST /users/{userId}/briefings
+
+```shell
+curl -u username:password \
+     -H "Content-Type: application/json" \
+     -X POST \
+     -d '{
+       "briefingId": "546e17fcd4c88ef1547b4f33"
+     }' \
+     https://api.attensa.net/users/{userId}/briefings
+```
+
+Have a user follow a stream and optionally subscribe to the streams briefing.
+
+### Request
+
+`POST https://api.attensa.com/users/{userId}/briefings`
+
+### Request body parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+briefingId | The stream for the user to follow | Yes | String | n/a
 
 ### Response
 
