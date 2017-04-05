@@ -896,7 +896,7 @@
 </code></pre>
 
 <blockquote>
-<p>204 emtpy body returned on success</p>
+<p>204 empty body returned on success</p>
 </blockquote>
 
 <p>Delete an existing briefing from the system. All users will be unsubscribed from the briefing when it is deleted.</p>
@@ -1984,9 +1984,9 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 empty body returned on success</p>
 </blockquote>
 
-<p>Delete an existing group from the system.  All users will be un-followed and un-subscribed from streams they followed or subscribed to via this group.</p>
+<p>Delete an existing group from the system. All users will be un-followed and un-subscribed from streams they followed or subscribed to via this group.</p>
 
-<aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
+<aside class="warning">Use this endpoint with care! There is no way to undo this action from the API</aside>
 
 <h3 id="request">Request</h3>
 
@@ -2026,7 +2026,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 empty body returned on success</p>
 </blockquote>
 
-<p>Unfollow &amp; unsubscribe a group from a stream</p>
+<p>Unfollow &amp; unsubscribe a group from a stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -4126,6 +4126,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>
 </code></pre>
 
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
 <p>This endpoint deletes an existing user</p>
 
 <h3 id="request">Request</h3>
@@ -4142,6 +4146,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/briefings/<span class="o">{</span>briefingId<span class="o">}</span>
 </code></pre>
 
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
 <p>This endpoint unsubscribes a user from a briefing.</p>
 
 <h3 id="request">Request</h3>
@@ -4157,6 +4165,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -X DELETE <span class="se">\</span>
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/streams/<span class="o">{</span>streamId<span class="o">}</span>
 </code></pre>
+
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
 
 <p>This endpoint unfollows a user from a stream.</p>
 
