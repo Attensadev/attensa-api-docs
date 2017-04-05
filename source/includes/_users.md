@@ -431,6 +431,7 @@ curl -u username:password \
      -X DELETE \
      https://api.attensa.net/users/{userId}
 ```
+> 204 empty body returned on success
 
 This endpoint deletes an existing user
 
@@ -449,6 +450,7 @@ curl -u username:password \
      -X DELETE \
      https://api.attensa.net/users/{userId}/briefings/{briefingId}
 ```
+> 204 empty body returned on success
 
 This endpoint unsubscribes a user from a briefing.
 
@@ -467,6 +469,7 @@ curl -u username:password \
      -X DELETE \
      https://api.attensa.net/users/{userId}/streams/{streamId}
 ```
+> 204 empty body returned on success
 
 This endpoint unfollows a user from a stream.
 
