@@ -173,6 +173,140 @@ This endpoint retrieves a specific briefing.
 
 Status code `200`
 
+## GET /briefings/{briefingId}/streams
+
+```shell
+curl -u username:password \
+     -X GET \
+     -d page=0 \
+     -d rows=20 \
+     https://api.attensa.net/briefings/{briefingId}/streams
+```
+
+> Status code 200 with response as follows:
+
+```json
+{
+  "_paging": {
+    "totalElementCount": 1,
+    "pageCount": 1,
+    "requestedPageSize": 20,
+    "elementCount": 1,
+    "page": 0
+  },
+  "_links": {
+    "first": "https://api.attensa.net/briefings/{briefingId}/streams?page=0&rows=20",
+    "last": "https://api.attensa.net/briefings/{briefingId}/streams?page=0&page=20"
+  },
+  "streams": [{
+    "id": "546e17fcd4c67da2547f5b61",
+    "title": "Test Stream 01",
+    "groupIsSubscribed": true,
+    "description": "Description 01",
+    "ownerId": "55414a36e4b0436b6280e668",
+    "type": "COLLECTION",
+    "emailPostingEnabled": true,
+    "openForReading": true,
+    "openForPosting": false,
+    "published": true,
+    "streamEmailAddress": "test.stream.01@email.attensa.net",
+    "rssEnabled": false,
+    "categoryIds" : ["55414a36e4b0436b6280e668", "823hg4asf34b0436b6280e668"],
+    "tagIds": ["54da78488ab02386a4658eee"],
+    "substreams": [
+      {
+          "id": "559c1972e4b008b9a5329478",
+          "title": "Hi, I am a substream!",
+          "type": "RSS"
+      }
+    ],
+    "_links": {
+      "self": "https://api.attensa.net/streams/546e17fcd4c67da2547f5b61",
+      "owner": "https://api.attensa.net/users/55414a36e4b0436b6280e668"
+    }
+  }]
+}
+```
+
+Get a paged list of streams in the briefing.
+
+### Request
+
+`GET https://api.attensa.com/briefings/{briefingId}/streams`
+
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+page | The page number to retrieve | No | Integer | 0
+rows | Number of streams in each page | No | Integer | 20
+
+### Response
+
+Status code `200`
+
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
+## GET /briefings/{briefingId}/users
+
+```shell
+curl -u username:password https://api.attensa.net/briefings/{briefingId}/users
+```
+> Status code 200 with json structured as follows:
+
+```json
+{
+  "_links": {
+    "first": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=0",
+    "last": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=1",
+    "next": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=1"
+  },
+  "_paging": {
+    "elementCount": 20,
+    "page": 0,
+    "pageCount": 2,
+    "requestedPageSize": 20,
+    "totalElementCount": 34
+  },
+  "users": [
+    {
+      "id": "5421903ae4b0fd12d843a219",
+      "emailAddress": "test@attensa.com",
+      "firstName": "Adam",
+      "middleName": "J",
+      "lastName": "Test",
+      "suffix": "SR",
+      "status": "ACTIVE",
+      "timeZone": "US/Pacific",
+      "_links": {
+        "self": "https://api.attensa.net/users/5421903ae4b0fd12d843a219"
+      }
+    },
+    ...
+  ]
+}
+```
+
+Get users that are subscribed to a specific briefing.
+
+### Request
+
+`GET https://api.attensa.net/briefings/{briefingId}/users`
+
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+page | The page number to retrieve | No | Integer | 0
+rows | Number of users in each page | No | Integer | 20
+term | A search term to narrow the list of users returned | No | String | `null`
+sort | Field to sort the results on | No | firstName, lastName or emailAddress | emailAddress
+sortDirection | Sort ascending or descending | No | ASC or DESC | ASC
+
+### Response
+
+Status code `200`
+
 ## POST /briefings
 
 ```shell
@@ -313,7 +447,7 @@ schedule:timeZone | Timezone of requested send time | Yes | [Supported time zone
 
 Status code `201`
 
-## PUT /streams/{streamId}
+## PUT /briefings/{briefingId}
 
 ```shell
 curl -u username:password \
