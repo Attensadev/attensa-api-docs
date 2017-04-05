@@ -584,3 +584,41 @@ Delete an existing briefing from the system. All users will be unsubscribed from
 ### Response
 
 Status code `204` with empty body
+
+## DELETE /briefings/{briefingId}/streams/{streamId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/briefings/{briefingId}/streams/{streamId}
+```
+> 204 empty body returned on success
+
+Remove a stream from a briefing.
+
+### Request
+
+`DELETE https://api.attensa.net/briefings/{briefingId}/streams/{streamId}`
+
+### Response
+
+Status code `204` with empty body
+
+## DELETE /briefings/{briefingId}/users/{userId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/briefings/{briefingId}/users/{userId}
+```
+> 204 empty body returned on success
+
+Unsubscribe a user from a briefing.
+
+### Request
+
+`DELETE https://api.attensa.net/briefings/{briefingId}/users/{userId}`
+
+### Response
+
+Status code `204` with empty body
