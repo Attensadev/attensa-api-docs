@@ -489,9 +489,9 @@ curl -u username:password \
 ```
 > 204 empty body returned on success
 
-Delete an existing group from the system.  All users will be un-followed and un-subscribed from streams they followed or subscribed to via this group.
+Delete an existing group from the system. All users will be un-followed and un-subscribed from streams they followed or subscribed to via this group.
 
-<aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
+<aside class="warning">Use this endpoint with care! There is no way to undo this action from the API</aside>
 
 ### Request
 
@@ -529,7 +529,7 @@ curl -u username:password \
 ```
 > 204 empty body returned on success
 
-Unfollow & unsubscribe a group from a stream
+Unfollow & unsubscribe a group from a stream.
 
 ### Request
 

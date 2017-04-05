@@ -571,7 +571,7 @@ curl -u username:password \
      -X DELETE \
      https://api.attensa.net/briefings/{briefingId}
 ```
-> 204 emtpy body returned on success
+> 204 empty body returned on success
 
 Delete an existing briefing from the system. All users will be unsubscribed from the briefing when it is deleted.
 
