@@ -255,6 +255,195 @@
 
 <p>Status code <code class="prettyprint">200</code></p>
 
+<h2 id="get-briefings-briefingid-streams">GET /briefings/{briefingId}/streams</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X GET <span class="se">\</span>
+     -d <span class="nv">page</span><span class="o">=</span>0 <span class="se">\</span>
+     -d <span class="nv">rows</span><span class="o">=</span>20 <span class="se">\</span>
+     https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>/streams
+</code></pre>
+
+<blockquote>
+<p>Status code 200 with response as follows:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"_paging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"totalElementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"requestedPageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"elementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/briefings/{briefingId}/streams?page=0&amp;rows=20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/briefings/{briefingId}/streams?page=0&amp;page=20"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"groupIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"streamEmailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.stream.01@email.attensa.net"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"categoryIds"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w"> </span><span class="s2">"823hg4asf34b0436b6280e668"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54da78488ab02386a4658eee"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"substreams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"559c1972e4b008b9a5329478"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, I am a substream!"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Get a paged list of streams in the briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://api.attensa.com/briefings/{briefingId}/streams</code></p>
+
+<h3 id="request-query-parameters">Request query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>The page number to retrieve</td>
+<td>No</td>
+<td>Integer</td>
+<td>0</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>Number of streams in each page</td>
+<td>No</td>
+<td>Integer</td>
+<td>20</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+
+<h2 id="get-briefings-briefingid-users">GET /briefings/{briefingId}/users</h2>
+<pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>/users
+</code></pre>
+
+<blockquote>
+<p>Status code 200 with json structured as follows:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_paging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"elementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"requestedPageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalElementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5421903ae4b0fd12d843a219"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@attensa.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"suffix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/5421903ae4b0fd12d843a219"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Get users that are subscribed to a specific briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://api.attensa.net/briefings/{briefingId}/users</code></p>
+
+<h3 id="request-query-parameters">Request query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>The page number to retrieve</td>
+<td>No</td>
+<td>Integer</td>
+<td>0</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>Number of users in each page</td>
+<td>No</td>
+<td>Integer</td>
+<td>20</td>
+</tr>
+<tr>
+<td>term</td>
+<td>A search term to narrow the list of users returned</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Field to sort the results on</td>
+<td>No</td>
+<td>firstName, lastName or emailAddress</td>
+<td>emailAddress</td>
+</tr>
+<tr>
+<td>sortDirection</td>
+<td>Sort ascending or descending</td>
+<td>No</td>
+<td>ASC or DESC</td>
+<td>ASC</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
 <h2 id="post-briefings">POST /briefings</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -492,7 +681,7 @@
 
 <p>Status code <code class="prettyprint">201</code></p>
 
-<h2 id="put-streams-streamid">PUT /streams/{streamId}</h2>
+<h2 id="put-briefings-briefingid">PUT /briefings/{briefingId}</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
@@ -699,6 +888,68 @@
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">200</code></p>
+
+<h2 id="delete-briefings-briefingid">DELETE /briefings/{briefingId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>204 emtpy body returned on success</p>
+</blockquote>
+
+<p>Delete an existing briefing from the system. All users will be unsubscribed from the briefing when it is deleted.</p>
+
+<aside class="warning">Use this endpoint with care! There is no way to undo this action from the API.</aside>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.net/briefings/{briefingId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
+
+<h2 id="delete-briefings-briefingid-streams-streamid">DELETE /briefings/{briefingId}/streams/{streamId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>/streams/<span class="o">{</span>streamId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
+<p>Remove a stream from a briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.net/briefings/{briefingId}/streams/{streamId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
+
+<h2 id="delete-briefings-briefingid-users-userid">DELETE /briefings/{briefingId}/users/{userId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>/users/<span class="o">{</span>userId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
+<p>Unsubscribe a user from a briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.net/briefings/{briefingId}/users/{userId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
 
           <h1 id="categories">Categories</h1>
 
@@ -1161,7 +1412,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves information about a specific group</p>
+<p>This endpoint retrieves information about a specific group.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1679,7 +1930,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Update an existing group.  Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.</p>
+<p>Update an existing group. Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1755,7 +2006,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 empty body returned on success</p>
 </blockquote>
 
-<p>Remove a user from a group</p>
+<p>Remove a user from a group.</p>
 
 <h3 id="request">Request</h3>
 
@@ -1783,7 +2034,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <h3 id="response">Response</h3>
 
-<p>Status code <code class="prettyprint">204</code> with empty body</p>
+<p>Status code <code class="prettyprint">204</code> with empty body.</p>
 
           <h1 id="streams">Streams</h1>
 
@@ -1969,6 +2220,20 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>Filter results to a specific stream type</td>
 <td>No</td>
 <td><a href="#stream-types">searchable stream type</a></td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>tagIds</td>
+<td>Filter results to streams with at least one of the tagIds</td>
+<td>No</td>
+<td>comma separated ID list</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>categoryIds</td>
+<td>Filter results to streams with at least one of the categoryIds</td>
+<td>No</td>
+<td>comma separated ID list</td>
 <td><code class="prettyprint">null</code></td>
 </tr>
 </tbody></table>
@@ -3440,6 +3705,20 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>String</td>
 <td><code class="prettyprint">null</code></td>
 </tr>
+<tr>
+<td>tagIds</td>
+<td>Filter results to streams with at least one of the tagIds</td>
+<td>No</td>
+<td>comma separated ID list</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>categoryIds</td>
+<td>Filter results to streams with at least one of the categoryIds</td>
+<td>No</td>
+<td>comma separated ID list</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
 </tbody></table>
 
 <h3 id="response">Response</h3>
@@ -3482,47 +3761,27 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"briefings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My email subject line!"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some special message used by template."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c88ef1547b4f33"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"briefingTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily Briefing Example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"templateTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title that can be used inside Templates via helpers"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily news sent ever day."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Daily News!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54eba226e4b050dd8b9c1099"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subscriberCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-30"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"stopDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-31"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEEKLY"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"sendDays"</span><span class="p">:[</span><span class="s2">"MO"</span><span class="p">,</span><span class="s2">"TU"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">],</span><span class="w">
-          </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
+        </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAILY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54b58250e4b0ec83add2661e"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"stream"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://slashdot.org/rss"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"streamEmailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.stream.01@email.attensa.net"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54da78488ab02386a4658eee"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"catgoryIds"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w"> </span><span class="s2">"823hg4asf34b0436b6280e668"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userIsFollowing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userIsFollowingViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userIsSubscribedViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"streamIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"55fae1c6e4b0efbbd6062867"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"585206dbe4b06537eec79b04"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"55e4e635e4b00de911f2259a"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3566,15 +3825,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>Status code <code class="prettyprint">200</code></p>
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
-
-<p>Four properties are added to the normal stream objects returned in briefings array that specify the user&rsquo;s relationship with the stream:</p>
-
-<ul>
-<li>userIsFollowing</li>
-<li>userIsFollowingViaGroup</li>
-<li>userIsSubscribed</li>
-<li>userIsSubscribedViaGroup</li>
-</ul>
 
 <h2 id="post-users">POST /users</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -3682,13 +3932,53 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">201</code></p>
 
+<h2 id="post-users-userid-briefings">POST /users/{userId}/briefings</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "briefingId": "546e17fcd4c88ef1547b4f33"
+     }'</span> <span class="se">\</span>
+     https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/briefings
+</code></pre>
+
+<p>Have a user follow a stream and optionally subscribe to the streams briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.com/users/{userId}/briefings</code></p>
+
+<h3 id="request-body-parameters">Request body parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>briefingId</td>
+<td>The stream for the user to follow</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
+
 <h2 id="post-users-userid-streams">POST /users/{userId}/streams</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">'{
        "streamId": "546e17fcd4c67da2547f5b61",
-       "subscribeToBriefing": true,
+       "subscribeToBriefing": false
      }'</span> <span class="se">\</span>
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/streams
 </code></pre>
@@ -3711,8 +4001,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </tr>
 </thead><tbody>
 <tr>
-<td>streamId</td>
-<td>The stream for the user to follow</td>
+<td>briefingId</td>
+<td>The briefing for the user to subscribe to</td>
 <td>Yes</td>
 <td>String</td>
 <td>n/a</td>
@@ -3846,13 +4136,29 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">204</code>, empty body</p>
 
+<h2 id="delete-user-userid-briefings-briefingid">DELETE /user/{userId}/briefings/{briefingId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/briefings/<span class="o">{</span>briefingId<span class="o">}</span>
+</code></pre>
+
+<p>This endpoint unsubscribes a user from a briefing.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.com/users/{userId}/briefings/{briefingId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code>, empty body</p>
+
 <h2 id="delete-user-userid-streams-streamid">DELETE /user/{userId}/streams/{streamId}</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -X DELETE <span class="se">\</span>
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/streams/<span class="o">{</span>streamId<span class="o">}</span>
 </code></pre>
 
-<p>This endpoint unfollows and unsubscribes a user from a stream.</p>
+<p>This endpoint unfollows a user from a stream.</p>
 
 <h3 id="request">Request</h3>
 
