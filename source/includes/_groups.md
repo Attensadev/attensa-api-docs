@@ -79,7 +79,7 @@ curl -u username:password https://api.attensa.net/groups/{groupId}
 }
 ```
 
-This endpoint retrieves information about a specific group
+This endpoint retrieves information about a specific group.
 
 ### Request
 
@@ -462,7 +462,7 @@ curl -u username:password \
 }
 ```
 
-Update an existing group.  Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.
+Update an existing group. Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.
 
 ### Request
 
@@ -510,7 +510,7 @@ curl -u username:password \
 ```
 > 204 empty body returned on success
 
-Remove a user from a group
+Remove a user from a group.
 
 ### Request
 
@@ -537,4 +537,4 @@ Unfollow & unsubscribe a group from a stream
 
 ### Response
 
-Status code `204` with empty body
+Status code `204` with empty body.
