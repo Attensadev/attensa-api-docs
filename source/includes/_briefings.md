@@ -173,6 +173,35 @@ This endpoint retrieves a specific briefing.
 
 Status code `200`
 
+## GET /briefings/{briefingId}/preview
+
+```shell
+curl -u username:password https://api.attensa.net/briefings/{briefingId}/preview
+```
+> The above command returns a preview of the raw HTML that would be used to send the briefing email:
+
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+[SNIP]
+</head>
+<body width="100%" bgcolor="#f4f4f4" style="Margin: 0;">
+[SNIP]
+</body>
+</html>
+```
+
+This endpoint retrieves a preview of a briefing's HTML email.
+
+### Request
+
+`GET https://api.attensa.net/briefings/{briefingId}/preview`
+
+### Response
+
+Status code `200`
+
 ## GET /briefings/{briefingId}/streams
 
 ```shell
