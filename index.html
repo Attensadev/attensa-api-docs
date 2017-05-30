@@ -255,6 +255,34 @@
 
 <p>Status code <code class="prettyprint">200</code></p>
 
+<h2 id="get-briefings-briefingid-preview">GET /briefings/{briefingId}/preview</h2>
+<pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/briefings/<span class="o">{</span>briefingId<span class="o">}</span>/preview
+</code></pre>
+
+<blockquote>
+<p>The above command returns a preview of the raw HTML that would be used to send the briefing email:</p>
+</blockquote>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/1999/xhtml"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+[SNIP]
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">bgcolor=</span><span class="s">"#f4f4f4"</span> <span class="na">style=</span><span class="s">"Margin: 0;"</span><span class="nt">&gt;</span>
+[SNIP]
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+
+<p>This endpoint retrieves a preview of a briefing&rsquo;s HTML email.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://api.attensa.net/briefings/{briefingId}/preview</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
 <h2 id="get-briefings-briefingid-streams">GET /briefings/{briefingId}/streams</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -X GET <span class="se">\</span>
