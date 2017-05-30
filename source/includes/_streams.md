@@ -219,7 +219,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/items
   "_links": {
     "first": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=0",
     "last": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=1",
-    "next": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/users?page=1"
+    "next": "https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=1"
   },
   "_paging": {
     "elementCount": 20,
@@ -252,6 +252,18 @@ Get items for a specific stream.
 ### Request
 
 `GET https://api.attensa.net/streams/{streamId}/items`
+
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+page | The page number to retrieve | No | Integer | 0
+rows | Number of users in each page | No | Integer | 20
+includeFullDescription | Field to request full descriptions | No | boolean | false
+
+### Response
+
+Status code `200`
 
 ## GET /streams/{streamId}/users
 
