@@ -2378,6 +2378,89 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
+<h2 id="get-streams-streamid-items">GET /streams/{streamId}/items</h2>
+<pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/items
+</code></pre>
+
+<blockquote>
+<p>Status code 200 with json structured as follows:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/55245b56e4b0db8a310d8767/items?page=1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_paging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"elementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"requestedPageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalElementCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5421214ba4b0fd12d834a223"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar blandit ante vel congue. Nulla et risus interdum, tristique sapien sit amet, suscipit diam. Vestibulum a sem sed lectus sagit"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.com/lorem/ipsum/2017/05/30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-30T14:39:18.936Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-30T13:30:00.188Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5421214ba4b0fd12d834a223"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Get items for a specific stream.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://api.attensa.net/streams/{streamId}/items</code></p>
+
+<h3 id="request-query-parameters">Request query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>The page number to retrieve</td>
+<td>No</td>
+<td>Integer</td>
+<td>0</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>Number of users in each page</td>
+<td>No</td>
+<td>Integer</td>
+<td>20</td>
+</tr>
+<tr>
+<td>includeFullDescription</td>
+<td>Field to request full descriptions</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">200</code></p>
+
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
 </code></pre>
@@ -2401,7 +2484,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pi.attensa.net/users/5421903ae4b0fd12d843a219"</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/5421903ae4b0fd12d843a219"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@attensa.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adam"</span><span class="p">,</span><span class="w">
