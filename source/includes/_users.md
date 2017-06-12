@@ -3,7 +3,7 @@
 ## GET /users
 
 ```shell
-curl -u adam:password https://localhost:8000/users
+curl -u username:password https://localhost:8000/users
 ```
 
 > The above command returns JSON structured like this:
@@ -60,7 +60,7 @@ See the [paging metadata specification](#paging-format) for more information on 
 ## GET /users/{userId}
 
 ```shell
-curl -u adam:password https://api.attensa.net/users/{userId}
+curl -u username:password https://api.attensa.net/users/{userId}
 ```
 
 > The above command returns JSON structured like this:
