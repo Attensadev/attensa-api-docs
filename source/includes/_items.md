@@ -3,7 +3,7 @@
 ## GET /items
 
 ```shell
-curl -u adam:password https://localhost:8000/items
+curl -u username:password https://localhost:8000/items
 ```
 
 > The above command returns JSON structured like this:
@@ -53,7 +53,7 @@ This endpoint retrieves a paged list of items.
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
-rows | Number of users in each page | No | Integer | 20
+rows | Number of items in each page | No | Integer | 20
 streamIds | Filter results to streamIds in list | No | comma separated ID list | `null`
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
@@ -89,7 +89,7 @@ curl -u username:password https://api.attensa.net/items/{itemId}
 }
 ```
 
-This endpoint retrieves a specific user.
+This endpoint retrieves a specific item.
 
 ### Request
 
