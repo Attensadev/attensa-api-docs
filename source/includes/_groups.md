@@ -378,13 +378,7 @@ curl -u username:password \
      }' \
      https://api.attensa.net/groups/users
 ```
-> Status code 201 with response as follows:
-
-```json
-{
-  "id": "56161che546097aa51621b47"
-}
-```
+> Status code 204 with empty body
 
 Add a user to a group
 
@@ -409,14 +403,13 @@ curl -u username:password \
      -H "Content-Type: application/json" \
      -X POST \
      -d '{
-       "streamId": "559bf709e4b008a9a53293c3",
-       "subscribeToBriefing": true,
+       "streamId": "559bf709e4b008a9a53293c3"
      }' \
      https://api.attensa.net/groups/{groupId}/streams
 ```
 > Status code 204 with empty body
 
-Set a grop to follow a stream and optionally subscribe to it's briefing
+Set a group to follow a stream
 
 ### Request
 
@@ -427,7 +420,6 @@ Set a grop to follow a stream and optionally subscribe to it's briefing
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 streamId | Id of the stream to follow | Yes | String | n/a
-subscribeToBriefing | subscribe the group to the streams briefing | No | Boolean | false
 
 ### Response
 
@@ -529,7 +521,7 @@ curl -u username:password \
 ```
 > 204 empty body returned on success
 
-Unfollow & unsubscribe a group from a stream.
+Unfollow a group from a stream.
 
 ### Request
 
