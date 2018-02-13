@@ -203,6 +203,8 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
 rows | Number of users in each page | No | Integer | 20
+sort | Field to sort the results on | No | created or published | published
+sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
 ### Response
