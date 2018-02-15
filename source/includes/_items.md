@@ -57,6 +57,7 @@ rows | Number of items in each page | No | Integer | 20
 sort | Field to sort the results on | No | created or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 streamIds | Filter results to streamIds in list | No | comma separated ID list | `null`
+userId | Annotate response with user specific info | No | `null`
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
 ### Response
@@ -64,6 +65,12 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
+If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: 
+
+* likedByUser
+* readByUser
+* savedByUser
 
 ## GET /items/{itemId}
 
@@ -97,9 +104,21 @@ This endpoint retrieves a specific item.
 
 `GET https://api.attensa.com/items/{itemId}`
 
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+userId | Annotate response with user specific info | No | `null`
+
 ### Response
 
 Status code `200`
+
+If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: 
+
+* likedByUser
+* readByUser
+* savedByUser
 
 ## POST /items/{itemId}/likes
 
