@@ -134,9 +134,6 @@ curl -u username:password \
       "itemsCount": 0,
       "followersCount": 0,
       "userIsFollowing": true,
-      "userIsFollowingViaGroup": false,
-      "userIsSubscribed": true,
-      "userIsSubscribedViaGroup": false,
       "_links": {
           "self": "https://api.attensa.net/streams/546e17fcd4c67da2547f5b61",
           "owner": "https://api.attensa.net/users/55414a36e4b0436b6280e668"
@@ -168,13 +165,6 @@ categoryIds | Filter results to streams with at least one of the categoryIds | N
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
-
-Four properties are added to the normal stream objects returned in the `streams` array that specify the user's relationship with the stream:
-
-* userIsFollowing
-* userIsFollowingViaGroup
-* userIsSubscribed
-* userIsSubscribedViaGroup
 
 ## GET /users/{userId}/briefings
 
@@ -342,13 +332,12 @@ curl -u username:password \
      -H "Content-Type: application/json" \
      -X POST \
      -d '{
-       "streamId": "546e17fcd4c67da2547f5b61",
-       "subscribeToBriefing": false
+       "streamId": "546e17fcd4c67da2547f5b61"
      }' \
      https://api.attensa.net/users/{userId}/streams
 ```
 
-Have a user follow a stream and optionally subscribe to the streams briefing.
+Have a user follow a stream.
 
 ### Request
 
@@ -359,7 +348,6 @@ Have a user follow a stream and optionally subscribe to the streams briefing.
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 briefingId | The briefing for the user to subscribe to | Yes | String | n/a
-subscribeToBriefing | Subscribe the user to the briefing | No | Boolean | `false`
 
 ### Response
 

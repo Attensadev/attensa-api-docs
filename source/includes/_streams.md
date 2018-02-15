@@ -46,7 +46,6 @@ curl -u username:password \
   "streams": [{
     "id": "546e17fcd4c67da2547f5b61",
     "title": "Test Stream 01",
-    "groupIsSubscribed": true,
     "description": "Description 01",
     "ownerId": "55414a36e4b0436b6280e668",
     "type": "COLLECTION",
@@ -152,61 +151,6 @@ This endpoint retrieves a specific stream.
 
 Status code `200`
 
-## GET /streams/{streamId}/briefing
-
-```shell
-curl -u username:password https://api.attensa.net/streams/{streamId}/briefing
-```
-> Status code 200 with json structured as follows:
-
-```json
-{
-  "description": "javascript news",
-  "templateId": "54eba226e4b050dd8b9c1099",
-  "subject": "DailyJS",
-  "schedule": {
-    "frequency": "DAILY",
-    "interval": 2,
-    "sendHour": 10,
-    "sendMinute": 40,
-    "startDate": "2015-08-08",
-    "timeZone": "US/Pacific"
-  },
-  "stream": {
-    "categoryIds": ["54eba224e4b050dd8b9c1096"],
-    "emailPostingEnabled": false,
-    "id": "5519ae56e4b0c0419a88bae1",
-    "followersCount": 0,
-    "itemsCount": 111,
-    "openForPosting": false,
-    "openForReading": true,
-    "ownerId": "54da7849e4b02386a4658e5d",
-    "published": true,
-    "rssEnabled": true,
-    "source": {
-        "uri": "http://feeds.feedburner.com/dailyjs"
-    },
-    "tagIds": ["54da78488ab02386a4658eee"],
-    "title": "DailyJS",
-    "type": "RSS",
-    "_links": {
-      "self": "https://api.attensa.net/streams/5519ae56e4b0c0419a88bae1",
-      "owner": "https://api.attensa.net/users/54da7849e4b02386a4658e5d"
-    }
-  }
-}
-```
-
-Get briefing information for a specific stream.
-
-### Request
-
-`GET https://api.attensa.net/streams/{streamId}/briefing`
-
-### Response
-
-Status code `200`
-
 ## GET /streams/{streamId}/items
 
 ```shell
@@ -259,6 +203,8 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
 rows | Number of users in each page | No | Integer | 20
+sort | Field to sort the results on | No | created or published | published
+sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
 ### Response
@@ -299,16 +245,13 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/users
       "status": "ACTIVE",
       "suffix": "SR",
       "timeZone": "US/Pacific",
-      "userIsFollowing": false,
-      "userIsFollowingViaGroup": true,
-      "userIsSubscribed": false,
-      "userIsSubscribedViaGroup": false
+      "userIsFollowing": false
     }
   ]
 }
 ```
 
-Get users that are following/subscribed to a specific stream.
+Get users that are following a specific stream.
 
 ### Request
 
@@ -483,7 +426,7 @@ title | Item title | Yes | String | n/a
 
 Status code `202`
 
-<aside class="notice">Item creation is asynchronous.  While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
+<aside class="notice">Item creation is asynchronous. While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
 
 ## POST /streams/{streamId}/items/{itemId}/attachments
 
@@ -505,98 +448,6 @@ Add a file to an item as an attachment.
 ### Request
 
 `POST https://api.attensa.net/streams/{streamId}/items/{itemId}/attachments`
-
-### Response
-
-Status code `200`
-
-## POST /streams/{streamId}/briefing
-
-```shell
-curl -u username:password \
-     -H "Content-Type: application/json" \
-     -X POST \
-     -d '{
-       "subject": "briefing subject",
-       "description": "test description here",
-       "schedule": {
-         "startDate": 2015-06-07,
-         "stopDate": 2015-10-11,
-         "sendHour": 15,
-         "sendMinute": 30,
-         "frequency": "WEEKLY"
-         "interval": 2,
-         "sendDays": ["MO", "TU", "WE", "TH", "FR"],
-         "timeZone": "US/Pacific"
-       },
-       "templateId" : 54eba226e4b050dd8b9c1099
-     }' \
-     https://api.attensa.net/streams/{streamId}/briefing
-```
-> Above request schedules a briefing to send every other week on weekdays only.  Returns 200 structured as follows:
-
-```json
-{
-  "description": "test description here",
-  "subject": "briefing subject",
-  "templateId": "54eba226e4b050dd8b9c1099",
-  "schedule": {
-    "startDate": 2015-06-07,
-    "stopDate": 2015-10-11,
-    "sendHour": 15,
-    "sendMinute": 30,
-    "frequency": "WEEKLY",
-    "interval": 2,
-    "sendDays": ["MO", "TU", "WE", "TH", "FR"],
-    "timeZone": "US/Pacific"
-  },
-  "stream": {
-    "categoryIds": ["54eba224e4b050dd8b9c1096"],
-    "emailPostingEnabled": false,
-    "id": "5519ae56e4b0c0419a88bae1",
-    "followersCount": 0,
-    "itemsCount": 111,
-    "openForPosting": false,
-    "openForReading": true,
-    "ownerId": "54da7849e4b02386a4658e5d",
-    "published": true,
-    "rssEnabled": true,
-    "source": {
-        "uri": "http://feeds.feedburner.com/dailyjs"
-    },
-    "tagIds": ["54da78488ab02386a4658eee"],
-    "title": "DailyJS",
-    "type": "RSS",
-    "_links": {
-      "self": "https://api.attensa.net/streams/5519ae56e4b0c0419a88bae1",
-      "owner": "https://api.attensa.net/users/54da7849e4b02386a4658e5d"
-    }
-  }
-}
-```
-
-Create a briefing and schedule for an existing stream.
-
-### Request
-
-`POST https://api.attensa.net/streams/{streamId}/briefing`
-
-### JSON body request properties
-
-Parameter | Description | Required | Format | Default
---------- | ----------- | -------- | ------ | -------
-description | Long description of the briefing | No | String | `null`
-subject | Subject line used for sending briefing email | Yes | String | n/a
-templateId | Email template to use | No | String of valid template id | id of default template
-schedule:startDate | Day to start sending the briefing | Yes | `YYYY-MM-DD` | n/a
-schedule:stopDate | Day to stop sending the briefing. Omit to never stop. | No | `YYYY-MM-DD` | `null`
-schedule:sendHour | Hour of day to send briefing | Yes | Integer `0-23` | n/a
-schedule:sendMinute | Minute of hour to send briefing | Yes | Integer `0-59` | n/a
-schedule:frequency | Frequency to send briefing | Yes | `DAILY`, `WEEKLY`, `MONTHLY` | n/a
-schedule:interval | Interval of frequency to send.  e.g. send every `<interval>` days  | No | Integer `1-31` | 1
-schedule:sendDays | Array of days of the week to send briefing on | For WEEKLY frequency | [`SU`,`MO`,`TU`,`WE`,`TH`,`FR`,`SA`] | n/a
-schedule:timeZone | Timezone of requested send time | Yes | [Supported time zone string](#time-zones) | `null`
-
 
 ### Response
 
@@ -681,7 +532,7 @@ rssEnabled | Allow public access to an RSS feed of this stream | No | Boolean | 
 tagIds | Stream tag IDs to tag the stream | No | [String] | n/a
 categoryIds | Categories to put the stream in | No | [String] | n/a
 
-<aside class="notice">Stream type can not be updated.  Once a stream is created it's type is immutable.</aside>
+<aside class="notice">Stream type can not be updated. Once a stream is created it's type is immutable.</aside>
 <aside class="notice">All categories or stream tags can be removed by sending an empty categoryIds or tagIds array (<code>"categoryIds": []</code>)</aside>
 <aside class="notice">If updating a secured source, all source fields must be sent (uri, username and password). If no username or password is supplied, but a source uri is, then any existing credentials will be removed.</aside>
 
@@ -698,7 +549,7 @@ curl -u username:password \
 ```
 > 204 emtpy body returned on success
 
-Delete an existing stream from the system. All users will be un-followed and un-subscribed from the stream when it is deleted.
+Delete an existing stream from the system. All users will be unfollowed from the stream when it is deleted.
 
 <aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
 
@@ -709,17 +560,6 @@ Delete an existing stream from the system. All users will be un-followed and un-
 ### Response
 
 Status code `204` with empty body
-
-## DELETE /streams/{streamId}/briefing
-
-```shell
-curl -u username:password \
-     -X DELETE \
-     https://api.attensa.net/streams/{streamId}/briefing
-```
-> 204 empty body returned on success
-
-Remove a briefing from a stream
 
 ### Request
 

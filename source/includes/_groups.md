@@ -185,7 +185,6 @@ curl -u username:password \
   },
   "streams": [{
     "title": "Test Stream 01",
-    "groupIsSubscribed": true,
     "description": "Description 01",
     "ownerId": "55414a36e4b0436b6280e668",
     "type": "COLLECTION",
@@ -227,8 +226,6 @@ term | A search term to narrow the list of streams returned | No | String | `nul
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
-
-<aside class="notice">The stream objects in the stream array will include a groupIsSubscribed property that specifies whether the group is subscribed to the stream's briefing in addition to following it.</aside>
 
 ## GET /groups/{groupId}/briefings
 
@@ -275,7 +272,6 @@ curl -u username:password \
         "description" : "Description 01",
         "emailPostingEnabled": false,
         "followersCount": 0,
-        "groupIsSubscribed": true,
         "id": "546e17fcd4c67da2547f5b61",
         "itemsCount": 0,
         "openForPosting": false,
@@ -378,13 +374,7 @@ curl -u username:password \
      }' \
      https://api.attensa.net/groups/users
 ```
-> Status code 201 with response as follows:
-
-```json
-{
-  "id": "56161che546097aa51621b47"
-}
-```
+> Status code 204 with empty body
 
 Add a user to a group
 
@@ -409,14 +399,13 @@ curl -u username:password \
      -H "Content-Type: application/json" \
      -X POST \
      -d '{
-       "streamId": "559bf709e4b008a9a53293c3",
-       "subscribeToBriefing": true,
+       "streamId": "559bf709e4b008a9a53293c3"
      }' \
      https://api.attensa.net/groups/{groupId}/streams
 ```
 > Status code 204 with empty body
 
-Set a grop to follow a stream and optionally subscribe to it's briefing
+Set a group to follow a stream
 
 ### Request
 
@@ -427,7 +416,6 @@ Set a grop to follow a stream and optionally subscribe to it's briefing
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 streamId | Id of the stream to follow | Yes | String | n/a
-subscribeToBriefing | subscribe the group to the streams briefing | No | Boolean | false
 
 ### Response
 
@@ -529,7 +517,7 @@ curl -u username:password \
 ```
 > 204 empty body returned on success
 
-Unfollow & unsubscribe a group from a stream.
+Unfollow a group from a stream.
 
 ### Request
 
