@@ -58,6 +58,7 @@ sort | Field to sort the results on | No | created or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 streamIds | Filter results to streamIds in list | No | comma separated ID list | `null`
 userId | Annotate response with user specific info | No | `null`
+includeReadItems | Field to request items read by user | No | boolean | true
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
 ### Response
@@ -119,6 +120,8 @@ If the `userId` parameter is used, three properties are added to the normal item
 * likedByUser
 * readByUser
 * savedByUser
+
+Also, when the `userId` parameter is used, the user will be added to the item's reader list.
 
 ## POST /items/{itemId}/likes
 
