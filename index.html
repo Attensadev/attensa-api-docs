@@ -1581,7 +1581,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"groupIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
@@ -1650,8 +1649,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<aside class="notice">The stream objects in the stream array will include a groupIsSubscribed property that specifies whether the group is subscribed to the stream&rsquo;s briefing in addition to following it.</aside>
-
 <h2 id="get-groups-groupid-briefings">GET /groups/{groupId}/briefings</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
      -X GET <span class="se">\</span>
@@ -1695,7 +1692,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
         </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"groupIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -1842,12 +1838,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </code></pre>
 
 <blockquote>
-<p>Status code 201 with response as follows:</p>
+<p>Status code 204 with empty body</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56161che546097aa51621b47"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
 <p>Add a user to a group</p>
 
@@ -1884,8 +1876,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">'{
-       "streamId": "559bf709e4b008a9a53293c3",
-       "subscribeToBriefing": true,
+       "streamId": "559bf709e4b008a9a53293c3"
      }'</span> <span class="se">\</span>
      https://api.attensa.net/groups/<span class="o">{</span>groupId<span class="o">}</span>/streams
 </code></pre>
@@ -1894,7 +1885,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>Status code 204 with empty body</p>
 </blockquote>
 
-<p>Set a grop to follow a stream and optionally subscribe to it&rsquo;s briefing</p>
+<p>Set a group to follow a stream</p>
 
 <h3 id="request">Request</h3>
 
@@ -1917,13 +1908,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>Yes</td>
 <td>String</td>
 <td>n/a</td>
-</tr>
-<tr>
-<td>subscribeToBriefing</td>
-<td>subscribe the group to the streams briefing</td>
-<td>No</td>
-<td>Boolean</td>
-<td>false</td>
 </tr>
 </tbody></table>
 
@@ -2055,7 +2039,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 empty body returned on success</p>
 </blockquote>
 
-<p>Unfollow &amp; unsubscribe a group from a stream.</p>
+<p>Unfollow a group from a stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -2139,11 +2123,39 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>20</td>
 </tr>
 <tr>
+<td>sort</td>
+<td>Field to sort the results on</td>
+<td>No</td>
+<td>created or published</td>
+<td>published</td>
+</tr>
+<tr>
+<td>sortDirection</td>
+<td>Sort ascending or descending</td>
+<td>No</td>
+<td>ASC or DESC</td>
+<td>DESC</td>
+</tr>
+<tr>
 <td>streamIds</td>
 <td>Filter results to streamIds in list</td>
 <td>No</td>
 <td>comma separated ID list</td>
 <td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Annotate response with user specific info</td>
+<td>No</td>
+<td><code class="prettyprint">null</code></td>
+<td></td>
+</tr>
+<tr>
+<td>includeReadItems</td>
+<td>Field to request items read by user</td>
+<td>No</td>
+<td>boolean</td>
+<td>true</td>
 </tr>
 <tr>
 <td>includeFullDescription</td>
@@ -2159,6 +2171,14 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>Status code <code class="prettyprint">200</code></p>
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+
+<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+
+<ul>
+<li>likedByUser</li>
+<li>readByUser</li>
+<li>savedByUser</li>
+</ul>
 
 <h2 id="get-items-itemid">GET /items/{itemId}</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>
@@ -2190,9 +2210,147 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p><code class="prettyprint">GET https://api.attensa.com/items/{itemId}</code></p>
 
+<h3 id="request-query-parameters">Request query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Annotate response with user specific info</td>
+<td>No</td>
+<td><code class="prettyprint">null</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">200</code></p>
+
+<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+
+<ul>
+<li>likedByUser</li>
+<li>readByUser</li>
+<li>savedByUser</li>
+</ul>
+
+<p>Also, when the <code class="prettyprint">userId</code> parameter is used, the user will be added to the item&rsquo;s reader list.</p>
+
+<h2 id="post-items-itemid-likes">POST /items/{itemId}/likes</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "userId": "559bf709e4b008a9a53293c3"
+     }'</span> <span class="se">\</span>
+     https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>/likes
+</code></pre>
+
+<blockquote>
+<p>Status code 204 with empty body</p>
+</blockquote>
+
+<p>Set a user to like the item</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.net/items/{itemId}/likes</code></p>
+
+<h3 id="json-request-body">JSON request body</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Id of the liking user</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code></p>
+
+<h2 id="post-items-itemid-readers">POST /items/{itemId}/readers</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "userId": "559bf709e4b008a9a53293c3"
+     }'</span> <span class="se">\</span>
+     https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>/readers
+</code></pre>
+
+<blockquote>
+<p>Status code 204 with empty body</p>
+</blockquote>
+
+<p>Add a user to the item&rsquo;s reader list</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.net/items/{itemId}/readers</code></p>
+
+<h3 id="json-request-body">JSON request body</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Id of reading user</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code></p>
+
+<h2 id="delete-items-itemid-likes-userid">DELETE /items/{itemId}/likes/{userId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>/likes/<span class="o">{</span>userId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
+<p>Unset a user from liking the item.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.net/items/{itemId}/likes/{userId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
 
           <h1 id="streams">Streams</h1>
 
@@ -2287,7 +2445,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"streams"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"groupIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
@@ -2454,60 +2611,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<h2 id="get-streams-streamid-briefing">GET /streams/{streamId}/briefing</h2>
-<pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/briefing
-</code></pre>
-
-<blockquote>
-<p>Status code 200 with json structured as follows:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"javascript news"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54eba226e4b050dd8b9c1099"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DailyJS"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAILY"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-08"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"stream"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54eba224e4b050dd8b9c1096"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5519ae56e4b0c0419a88bae1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54da7849e4b02386a4658e5d"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://feeds.feedburner.com/dailyjs"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54da78488ab02386a4658eee"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DailyJS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/5519ae56e4b0c0419a88bae1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/54da7849e4b02386a4658e5d"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Get briefing information for a specific stream.</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">GET https://api.attensa.net/streams/{streamId}/briefing</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>Status code <code class="prettyprint">200</code></p>
-
 <h2 id="get-streams-streamid-items">GET /streams/{streamId}/items</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/items
 </code></pre>
@@ -2579,6 +2682,27 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>20</td>
 </tr>
 <tr>
+<td>sort</td>
+<td>Field to sort the results on</td>
+<td>No</td>
+<td>created or published</td>
+<td>published</td>
+</tr>
+<tr>
+<td>sortDirection</td>
+<td>Sort ascending or descending</td>
+<td>No</td>
+<td>ASC or DESC</td>
+<td>DESC</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Annotate response with user specific info</td>
+<td>No</td>
+<td><code class="prettyprint">null</code></td>
+<td></td>
+</tr>
+<tr>
 <td>includeFullDescription</td>
 <td>Field to request full descriptions</td>
 <td>No</td>
@@ -2590,6 +2714,16 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">200</code></p>
+
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+
+<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+
+<ul>
+<li>likedByUser</li>
+<li>readByUser</li>
+<li>savedByUser</li>
+</ul>
 
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
@@ -2624,16 +2758,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"suffix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsFollowing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsFollowingViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsSubscribedViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"userIsFollowing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get users that are following/subscribed to a specific stream.</p>
+<p>Get users that are following a specific stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -3000,7 +3131,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">202</code></p>
 
-<aside class="notice">Item creation is asynchronous.  While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
+<aside class="notice">Item creation is asynchronous. While items are typically created whithin a few seconds, there is no guaranteed time frame for when a posted item will be available. </aside>
 
 <h2 id="post-streams-streamid-items-itemid-attachments">POST /streams/{streamId}/items/{itemId}/attachments</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -3021,170 +3152,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <h3 id="request">Request</h3>
 
 <p><code class="prettyprint">POST https://api.attensa.net/streams/{streamId}/items/{itemId}/attachments</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>Status code <code class="prettyprint">200</code></p>
-
-<h2 id="post-streams-streamid-briefing">POST /streams/{streamId}/briefing</h2>
-<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
-     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -d <span class="s1">'{
-       "subject": "briefing subject",
-       "description": "test description here",
-       "schedule": {
-         "startDate": 2015-06-07,
-         "stopDate": 2015-10-11,
-         "sendHour": 15,
-         "sendMinute": 30,
-         "frequency": "WEEKLY"
-         "interval": 2,
-         "sendDays": ["MO", "TU", "WE", "TH", "FR"],
-         "timeZone": "US/Pacific"
-       },
-       "templateId" : 54eba226e4b050dd8b9c1099
-     }'</span> <span class="se">\</span>
-     https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/briefing
-</code></pre>
-
-<blockquote>
-<p>Above request schedules a briefing to send every other week on weekdays only.  Returns 200 structured as follows:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test description here"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"briefing subject"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54eba226e4b050dd8b9c1099"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="mi">2015-06-07</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"stopDate"</span><span class="p">:</span><span class="w"> </span><span class="mi">2015-10-11</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sendHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sendMinute"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEEKLY"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sendDays"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"MO"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TU"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"timeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"stream"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"categoryIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54eba224e4b050dd8b9c1096"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5519ae56e4b0c0419a88bae1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54da7849e4b02386a4658e5d"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"rssEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://feeds.feedburner.com/dailyjs"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"tagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"54da78488ab02386a4658eee"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DailyJS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/5519ae56e4b0c0419a88bae1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/54da7849e4b02386a4658e5d"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Create a briefing and schedule for an existing stream.</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">POST https://api.attensa.net/streams/{streamId}/briefing</code></p>
-
-<h3 id="json-body-request-properties">JSON body request properties</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Required</th>
-<th>Format</th>
-<th>Default</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>description</td>
-<td>Long description of the briefing</td>
-<td>No</td>
-<td>String</td>
-<td><code class="prettyprint">null</code></td>
-</tr>
-<tr>
-<td>subject</td>
-<td>Subject line used for sending briefing email</td>
-<td>Yes</td>
-<td>String</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>templateId</td>
-<td>Email template to use</td>
-<td>No</td>
-<td>String of valid template id</td>
-<td>id of default template</td>
-</tr>
-<tr>
-<td>schedule:startDate</td>
-<td>Day to start sending the briefing</td>
-<td>Yes</td>
-<td><code class="prettyprint">YYYY-MM-DD</code></td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>schedule:stopDate</td>
-<td>Day to stop sending the briefing. Omit to never stop.</td>
-<td>No</td>
-<td><code class="prettyprint">YYYY-MM-DD</code></td>
-<td><code class="prettyprint">null</code></td>
-</tr>
-<tr>
-<td>schedule:sendHour</td>
-<td>Hour of day to send briefing</td>
-<td>Yes</td>
-<td>Integer <code class="prettyprint">0-23</code></td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>schedule:sendMinute</td>
-<td>Minute of hour to send briefing</td>
-<td>Yes</td>
-<td>Integer <code class="prettyprint">0-59</code></td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>schedule:frequency</td>
-<td>Frequency to send briefing</td>
-<td>Yes</td>
-<td><code class="prettyprint">DAILY</code>, <code class="prettyprint">WEEKLY</code>, <code class="prettyprint">MONTHLY</code></td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>schedule:interval</td>
-<td>Interval of frequency to send.  e.g. send every <code class="prettyprint">&lt;interval&gt;</code> days</td>
-<td>No</td>
-<td>Integer <code class="prettyprint">1-31</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td>schedule:sendDays</td>
-<td>Array of days of the week to send briefing on</td>
-<td>For WEEKLY frequency</td>
-<td>[<code class="prettyprint">SU</code>,<code class="prettyprint">MO</code>,<code class="prettyprint">TU</code>,<code class="prettyprint">WE</code>,<code class="prettyprint">TH</code>,<code class="prettyprint">FR</code>,<code class="prettyprint">SA</code>]</td>
-<td>n/a</td>
-</tr>
-<tr>
-<td>schedule:timeZone</td>
-<td>Timezone of requested send time</td>
-<td>Yes</td>
-<td><a href="#time-zones">Supported time zone string</a></td>
-<td><code class="prettyprint">null</code></td>
-</tr>
-</tbody></table>
 
 <h3 id="response">Response</h3>
 
@@ -3366,7 +3333,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </tr>
 </tbody></table>
 
-<aside class="notice">Stream type can not be updated.  Once a stream is created it&rsquo;s type is immutable.</aside>
+<aside class="notice">Stream type can not be updated. Once a stream is created it&rsquo;s type is immutable.</aside>
 
 <aside class="notice">All categories or stream tags can be removed by sending an empty categoryIds or tagIds array (<code>"categoryIds": []</code>)</aside>
 
@@ -3386,7 +3353,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>204 emtpy body returned on success</p>
 </blockquote>
 
-<p>Delete an existing stream from the system. All users will be un-followed and un-subscribed from the stream when it is deleted.</p>
+<p>Delete an existing stream from the system. All users will be unfollowed from the stream when it is deleted.</p>
 
 <aside class="warning">Use this endpoint with care!  There is no way to undo this action from the API</aside>
 
@@ -3397,18 +3364,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">204</code> with empty body</p>
-
-<h2 id="delete-streams-streamid-briefing">DELETE /streams/{streamId}/briefing</h2>
-<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
-     -X DELETE <span class="se">\</span>
-     https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/briefing
-</code></pre>
-
-<blockquote>
-<p>204 empty body returned on success</p>
-</blockquote>
-
-<p>Remove a briefing from a stream</p>
 
 <h3 id="request">Request</h3>
 
@@ -3896,9 +3851,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"itemsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"followersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userIsFollowing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsFollowingViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsSubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"userIsSubscribedViaGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/streams/546e17fcd4c67da2547f5b61"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/users/55414a36e4b0436b6280e668"</span><span class="w">
@@ -3967,15 +3919,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>Status code <code class="prettyprint">200</code></p>
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.</p>
-
-<p>Four properties are added to the normal stream objects returned in the <code class="prettyprint">streams</code> array that specify the user&rsquo;s relationship with the stream:</p>
-
-<ul>
-<li>userIsFollowing</li>
-<li>userIsFollowingViaGroup</li>
-<li>userIsSubscribed</li>
-<li>userIsSubscribedViaGroup</li>
-</ul>
 
 <h2 id="get-users-userid-briefings">GET /users/{userId}/briefings</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -4218,13 +4161,12 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">'{
-       "streamId": "546e17fcd4c67da2547f5b61",
-       "subscribeToBriefing": false
+       "streamId": "546e17fcd4c67da2547f5b61"
      }'</span> <span class="se">\</span>
      https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/streams
 </code></pre>
 
-<p>Have a user follow a stream and optionally subscribe to the streams briefing.</p>
+<p>Have a user follow a stream.</p>
 
 <h3 id="request">Request</h3>
 
@@ -4247,13 +4189,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>Yes</td>
 <td>String</td>
 <td>n/a</td>
-</tr>
-<tr>
-<td>subscribeToBriefing</td>
-<td>Subscribe the user to the briefing</td>
-<td>No</td>
-<td>Boolean</td>
-<td><code class="prettyprint">false</code></td>
 </tr>
 </tbody></table>
 
