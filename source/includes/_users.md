@@ -134,7 +134,7 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
 }
 ```
 
-Get items from the stream the users follows.
+Get items from the streams the user follows.
 
 ### Request
 
