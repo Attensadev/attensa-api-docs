@@ -91,6 +91,136 @@ This endpoint retrieves a specific user.
 
 Status code `200`
 
+## GET /users/{userId}/items
+
+```shell
+curl -u username:password https://api.attensa.net/users/{userId}/items
+```
+> Status code 200 with json structured as follows:
+
+```json
+{
+  "_links": {
+    "first": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/items?page=0",
+    "last": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/items?page=1",
+    "next": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/items?page=1"
+  },
+  "_paging": {
+    "elementCount": 20,
+    "page": 0,
+    "pageCount": 2,
+    "requestedPageSize": 20,
+    "totalElementCount": 34
+  },
+  "items": [
+    {
+      "id": "5421214ba4b0fd12d834a223",
+      "title": "Lorem Ipsum",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar blandit ante vel congue. Nulla et risus interdum, tristique sapien sit amet, suscipit diam. Vestibulum a sem sed lectus sagit",
+      "link": "http://www.example.com/lorem/ipsum/2017/05/30",
+      "created": "2017-05-30T14:39:18.936Z",
+      "published": "2017-05-30T13:30:00.188Z",
+      "streamId": "55773111e4b08d8c914d7d1a",
+      "streamOriginId": "55773111e4b08d8c914d7d1a",
+      "streamOriginTitle": "All the facts in Latin",
+      "likedByUser": false,
+      "readByUser": false,
+      "savedByUser": true,
+      "_links": {
+        "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
+      }
+    }
+  ]
+}
+```
+
+Get items from the streams the user follows.
+
+### Request
+
+`GET https://api.attensa.net/users/{userId}/items`
+
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+page | The page number to retrieve | No | Integer | 0
+rows | Number of users in each page | No | Integer | 20
+sort | Field to sort the results on | No | created or published | published
+sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
+includeFullDescription | Field to request full descriptions | No | boolean | false
+
+### Response
+
+Status code `200`
+
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
+## GET /users/{userId}/savedItems
+
+```shell
+curl -u username:password https://api.attensa.net/users/{userId}/items
+```
+> Status code 200 with json structured as follows:
+
+```json
+{
+  "_links": {
+    "first": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/savedItems?page=0",
+    "last": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/savedItems?page=1",
+    "next": "https://api.attensa.net/users/546e17fcd4c67da2547f5b61/savedItems?page=1"
+  },
+  "_paging": {
+    "elementCount": 20,
+    "page": 0,
+    "pageCount": 2,
+    "requestedPageSize": 20,
+    "totalElementCount": 34
+  },
+  "items": [
+    {
+      "id": "5421214ba4b0fd12d834a223",
+      "title": "Lorem Ipsum",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar blandit ante vel congue. Nulla et risus interdum, tristique sapien sit amet, suscipit diam. Vestibulum a sem sed lectus sagit",
+      "link": "http://www.example.com/lorem/ipsum/2017/05/30",
+      "created": "2017-05-30T14:39:18.936Z",
+      "published": "2017-05-30T13:30:00.188Z",
+      "streamId": "55773111e4b08d8c914d7d1a",
+      "streamOriginId": "55773111e4b08d8c914d7d1a",
+      "streamOriginTitle": "All the facts in Latin",
+      "likedByUser": false,
+      "readByUser": false,
+      "savedByUser": true,
+      "_links": {
+        "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
+      }
+    }
+  ]
+}
+```
+
+Get saved items for the user.
+
+### Request
+
+`GET https://api.attensa.net/users/{userId}/savedItems`
+
+### Request query parameters
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+page | The page number to retrieve | No | Integer | 0
+rows | Number of users in each page | No | Integer | 20
+sort | Field to sort the results on | No | created or published | published
+sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
+includeFullDescription | Field to request full descriptions | No | boolean | false
+
+### Response
+
+Status code `200`
+
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
 ## GET /users/{userId}/streams
 
 ```shell
