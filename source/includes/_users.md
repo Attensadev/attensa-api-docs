@@ -455,6 +455,35 @@ briefingId | The stream for the user to follow | Yes | String | n/a
 
 Status code `204` with empty body
 
+## POST /users/{userId}/savedItems
+
+```shell
+curl -u username:password \
+     -H "Content-Type: application/json" \
+     -X POST \
+     -d '{
+       "itemId": "559bf709e4b008a9a53293c3"
+     }' \
+     https://api.attensa.net/users/{userId}/savedItems
+```
+> Status code 204 with empty body
+
+Set a user to like the item
+
+### Request
+
+`POST https://api.attensa.net/users/{userId}/savedItems`
+
+### JSON request body
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+itemId | Id of item to save | Yes | String | n/a
+
+### Response
+
+Status code `204`
+
 ## POST /users/{userId}/streams
 
 ```shell
@@ -579,6 +608,17 @@ This endpoint unsubscribes a user from a briefing.
 ### Response
 
 Status code `204`, empty body
+
+## DELETE /user/{userId}/savedItems/{itemId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/users/{userId}/savedItems/{itemId}
+```
+> 204 empty body returned on success
+
+This endpoint removes an item from a user's saved item list.
 
 ## DELETE /user/{userId}/streams/{streamId}
 
