@@ -119,6 +119,7 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar blandit ante vel congue. Nulla et risus interdum, tristique sapien sit amet, suscipit diam. Vestibulum a sem sed lectus sagit",
       "link": "http://www.example.com/lorem/ipsum/2017/05/30",
       "created": "2017-05-30T14:39:18.936Z",
+      "modified": "2017-05-30T14:39:18.936Z",
       "published": "2017-05-30T13:30:00.188Z",
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
@@ -146,7 +147,7 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
 rows | Number of users in each page | No | Integer | 20
-sort | Field to sort the results on | No | created or published | published
+sort | Field to sort the results on | No | created, modified or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
@@ -184,6 +185,7 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar blandit ante vel congue. Nulla et risus interdum, tristique sapien sit amet, suscipit diam. Vestibulum a sem sed lectus sagit",
       "link": "http://www.example.com/lorem/ipsum/2017/05/30",
       "created": "2017-05-30T14:39:18.936Z",
+      "modified": "2017-05-30T14:39:18.936Z",
       "published": "2017-05-30T13:30:00.188Z",
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
@@ -211,7 +213,7 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
 rows | Number of users in each page | No | Integer | 20
-sort | Field to sort the results on | No | created or published | published
+sort | Field to sort the results on | No | created, modified or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
