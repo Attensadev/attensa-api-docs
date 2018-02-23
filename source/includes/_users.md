@@ -622,6 +622,14 @@ curl -u username:password \
 
 This endpoint removes an item from a user's saved item list.
 
+### Request
+
+`DELETE https://api.attensa.com/users/{userId}/savedItems/{itemId}`
+
+### Response
+
+Status code `204`, empty body
+
 ## DELETE /user/{userId}/streams/{streamId}
 
 ```shell
