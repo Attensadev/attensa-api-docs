@@ -124,6 +124,7 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
+      "logoUrl": "https://example.com/set_by_streams/itemLogoUrl.png",
       "likedByUser": false,
       "readByUser": false,
       "savedByUser": true,
@@ -156,6 +157,8 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
+<aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
 ## GET /users/{userId}/savedItems
 
@@ -190,6 +193,7 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
+      "logoUrl": "https://example.com/set_by_streams/itemLogoUrl.png",
       "likedByUser": false,
       "readByUser": false,
       "savedByUser": true,
@@ -222,6 +226,8 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+
+<aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
 ## GET /users/{userId}/streams
 

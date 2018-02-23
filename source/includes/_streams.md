@@ -49,6 +49,7 @@ curl -u username:password \
     "description": "Description 01",
     "ownerId": "55414a36e4b0436b6280e668",
     "type": "COLLECTION",
+    "itemLogoUrl": "https://example.com/path_to_logo/which_will_also_update/items_logo_url.png"
     "emailPostingEnabled": true,
     "openForReading": true,
     "openForPosting": true,
@@ -184,6 +185,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/items
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
+      "logoUrl": "https://example.com/initialized_based_on_value_of/stream_item_logo_url.png"
       "_links": {
         "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
       }
@@ -215,7 +217,7 @@ Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
-If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: 
+If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item:
 
 * likedByUser
 * readByUser
@@ -290,6 +292,7 @@ curl -u username:password \
      -d '{
        "title": "Test Stream 01",
        "description": "Description 01",
+       "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
        "ownerId": "55414a36e4b0436b6280e668",
        "type": "RSS",
        "source": {
@@ -313,6 +316,7 @@ curl -u username:password \
   "title": "Test Stream 01",
   "ownerId": "55414a36e4b0436b6280e668",
   "description" : "Description 01",
+  "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
   "type": "RSS",
   "source": {
       "uri": "http://slashdot.org/rss",
@@ -349,6 +353,7 @@ title | Stream Title | Yes | String | n/a
 description | Stream description | No | String | `null`
 ownerId | User id of stream owner | Yes | String of valid user id | n/a
 type | Stream type | Yes | [creatable stream type](#stream-types) | n/a
+itemLogoUrl | value to use to initialize item.logoUrl | No | String | `null`
 source:search | Search term. Only supply for ATTENSA_SEARCH, PUBMED_SEARCH or TWITTER_SEARCH streams | For type ATTENSA_SEARCH, PUBMED_SEARCH, TWITTER_SEARCH | String | `null`
 source:uri | Uri of rss feed. Only supply for type RSS streams | For type RSS | String | `null`
 source:type | Specify web or news search for BING_SEARCH streams | For type BING_SEARCH | `WEB` or `NEWS` | n/a
@@ -363,6 +368,7 @@ rssEnabled | Allow public access to an RSS feed of this stream | No | boolean | 
 tagIds | Stream tag IDs to tag the stream | No | [String] | []
 categoryIds | Categories to put the stream in | Yes (empty array for no categories) | [String] | []
 
+<aside class="notice">Including the optional itemLogoUrl will also set the value of the stream's items' logoUrl values in item responses.</aside>
 
 ### Response
 
@@ -472,6 +478,7 @@ curl -u username:password \
      -d '{
        "title": "Test Stream 01",
        "description": "Description 01",
+       "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
        "ownerId": "55414a36e4b0436b6280e668",
        "source": {
            "uri": "http://slashdot.org/rss",
@@ -495,6 +502,7 @@ curl -u username:password \
   "title": "Test Stream 01",
   "ownerId": "55414a36e4b0436b6280e668",
   "description" : "Description 01",
+  "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
   "type": "RSS",
   "source": {
       "uri": "http://slashdot.org/rss",
@@ -528,6 +536,7 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 title | Stream Title | No | String | n/a
 description | Stream description | No | String | n/a
+itemLogoUrl | value to use to initialize item.logoUrl | No | String | `null`
 ownerId | User id of stream owner | No | String of valid user id | n/a
 source:search | Search term. Only supply for ATTENSA_SEARCH, PUBMED_SEARCH or TWITTER_SEARCH streams | No | String | n/a
 source:uri | Uri of rss feed. Only supply for type RSS streams | No | String | n/a
@@ -545,6 +554,7 @@ categoryIds | Categories to put the stream in | No | [String] | n/a
 <aside class="notice">Stream type can not be updated. Once a stream is created it's type is immutable.</aside>
 <aside class="notice">All categories or stream tags can be removed by sending an empty categoryIds or tagIds array (<code>"categoryIds": []</code>)</aside>
 <aside class="notice">If updating a secured source, all source fields must be sent (uri, username and password). If no username or password is supplied, but a source uri is, then any existing credentials will be removed.</aside>
+<aside class="notice">Including the optional itemLogoUrl will also set the value of the stream's items' logoUrl values in item responses.</aside>
 
 ### Response
 

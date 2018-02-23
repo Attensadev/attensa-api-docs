@@ -29,6 +29,7 @@ curl -u username:password https://localhost:8000/items
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
+      "logoUrl": "https://example.com/set_by_streams/itemLogoUrl.png",
       "_links": {
         "self": "https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"
       }
@@ -68,11 +69,14 @@ Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
-If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: 
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item:
 
 * likedByUser
 * readByUser
 * savedByUser
+</aside>
+
+<aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
 ## GET /items/{itemId}
 
@@ -88,6 +92,7 @@ curl -u username:password https://api.attensa.net/items/{itemId}
   "title": "Lorem Ipsum",
   "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut al",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "logoUrl": "https://example.com/set_by_streams/itemLogoUrl.png",
   "link": "http://www.example.com/lorem/ipsum/2017/05/30",
   "created": "2017-05-30T14:39:18.936Z",
   "modified": "2017-05-30T14:39:18.936Z",
@@ -117,13 +122,14 @@ userId | Annotate response with user specific info | No | `null`
 
 Status code `200`
 
-If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: 
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item:
 
 * likedByUser
 * readByUser
 * savedByUser
-
-Also, when the `userId` parameter is used, the user will be added to the item's reader list.
+</aside>
+<aside class="notice">When the `userId` parameter is used, the user will be added to the item's reader list.</aside>
+<aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
 ## POST /items/{itemId}/likes
 
