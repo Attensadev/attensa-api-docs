@@ -353,7 +353,7 @@ title | Stream Title | Yes | String | n/a
 description | Stream description | No | String | `null`
 ownerId | User id of stream owner | Yes | String of valid user id | n/a
 type | Stream type | Yes | [creatable stream type](#stream-types) | n/a
-itemLogoUrl | value to use to initialize item.logoUrl | No | String | `null`
+itemLogoUrl | Value used to initialize item.logoUrl | No | String | `null`
 source:search | Search term. Only supply for ATTENSA_SEARCH, PUBMED_SEARCH or TWITTER_SEARCH streams | For type ATTENSA_SEARCH, PUBMED_SEARCH, TWITTER_SEARCH | String | `null`
 source:uri | Uri of rss feed. Only supply for type RSS streams | For type RSS | String | `null`
 source:type | Specify web or news search for BING_SEARCH streams | For type BING_SEARCH | `WEB` or `NEWS` | n/a
@@ -536,14 +536,14 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 title | Stream Title | No | String | n/a
 description | Stream description | No | String | n/a
-itemLogoUrl | value to use to initialize item.logoUrl | No | String | `null`
+itemLogoUrl | Value used to initialize item.logoUrl | No | String | `null`
 ownerId | User id of stream owner | No | String of valid user id | n/a
 source:search | Search term. Only supply for ATTENSA_SEARCH, PUBMED_SEARCH or TWITTER_SEARCH streams | No | String | n/a
 source:uri | Uri of rss feed. Only supply for type RSS streams | No | String | n/a
 source:username | Basic auth username for secured rss feed. Only supply for type RSS streams. | No | String | n/a
 source:password | Basic auth password for secured rss feed. Only supply for type RSS streams. | No | String | n/a
 emailPostingEnabled | Allow posting to COLLECTION stream via email. | No | Boolean | n/a
-streamEmailAddress | Email address to for stream if emailPosting is enabled. Only set for collection streams | No | Valid email string | n/a
+streamEmailAddress | Email address for stream if emailPosting is enabled. Only set for collection streams | No | Valid email string | n/a
 openForReading | Allow all users to read this stream | No | Boolean | n/a
 openForPosting | Allow all users to post content to a COLLECTION stream | No | Boolean | n/a
 published | Publish the stream for users in your account to discover | No | boolean | false
