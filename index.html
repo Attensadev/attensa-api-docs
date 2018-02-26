@@ -2174,12 +2174,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item:
-
-* likedByUser
-* readByUser
-* savedByUser
-</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
@@ -2239,12 +2234,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item:
-
-* likedByUser
-* readByUser
-* savedByUser
-</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
 
 <aside class="notice">When the `userId` parameter is used, the user will be added to the item&rsquo;s reader list.</aside>
 
@@ -2579,6 +2569,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemLogoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"search"</span><span class="p">:</span><span class="w"> </span><span class="s2">"search term"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://slashdot.org/rss"</span><span class="p">,</span><span class="w">
@@ -2726,13 +2717,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item:</p>
-
-<ul>
-<li>likedByUser</li>
-<li>readByUser</li>
-<li>savedByUser</li>
-</ul>
+<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside></p>
 
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
