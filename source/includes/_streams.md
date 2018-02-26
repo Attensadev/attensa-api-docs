@@ -113,6 +113,7 @@ curl -u username:password https://api.attensa.net/streams/{streamId}
   "ownerId": "55414a36e4b0436b6280e668",
   "description" : "Description 01",
   "type": "COLLECTION",
+  "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
   "source": {
       "search": "search term",
       "uri": "http://slashdot.org/rss",
@@ -217,11 +218,7 @@ Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
-If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item:
-
-* likedByUser
-* readByUser
-* savedByUser
+If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
 
 ## GET /streams/{streamId}/users
 
