@@ -2078,6 +2078,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/set_by_streams/itemLogoUrl.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -2173,13 +2174,14 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item:
 
-<ul>
-<li>likedByUser</li>
-<li>readByUser</li>
-<li>savedByUser</li>
-</ul>
+* likedByUser
+* readByUser
+* savedByUser
+</aside>
+
+<aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
 <h2 id="get-items-itemid">GET /items/{itemId}</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>
@@ -2193,6 +2195,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut al"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/set_by_streams/itemLogoUrl.png"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.com/lorem/ipsum/2017/05/30"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-30T14:39:18.936Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-30T14:39:18.936Z"</span><span class="p">,</span><span class="w">
@@ -2236,15 +2239,16 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item:
 
-<ul>
-<li>likedByUser</li>
-<li>readByUser</li>
-<li>savedByUser</li>
-</ul>
+* likedByUser
+* readByUser
+* savedByUser
+</aside>
 
-<p>Also, when the <code class="prettyprint">userId</code> parameter is used, the user will be added to the item&rsquo;s reader list.</p>
+<aside class="notice">When the `userId` parameter is used, the user will be added to the item&rsquo;s reader list.</aside>
+
+<aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
 <h2 id="post-items-itemid-likes">POST /items/{itemId}/likes</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -2450,7 +2454,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"emailPostingEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"itemLogoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/path_to_logo/which_will_also_update/items_logo_url.png"</span><span class="w">
+    </span><span class="s2">"emailPostingEnabled"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"openForReading"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"openForPosting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2645,7 +2650,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/initialized_based_on_value_of/stream_item_logo_url.png"</span><span class="w">
+      </span><span class="s2">"_links"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5421214ba4b0fd12d834a223"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2720,7 +2726,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: </p>
+<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item:</p>
 
 <ul>
 <li>likedByUser</li>
@@ -2832,6 +2838,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -d <span class="s1">'{
        "title": "Test Stream 01",
        "description": "Description 01",
+       "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
        "ownerId": "55414a36e4b0436b6280e668",
        "type": "RSS",
        "source": {
@@ -2856,6 +2863,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemLogoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://slashdot.org/rss"</span><span class="p">,</span><span class="w">
@@ -2922,6 +2930,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>Yes</td>
 <td><a href="#stream-types">creatable stream type</a></td>
 <td>n/a</td>
+</tr>
+<tr>
+<td>itemLogoUrl</td>
+<td>value to use to initialize item.logoUrl</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
 </tr>
 <tr>
 <td>source:search</td>
@@ -3015,6 +3030,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>[]</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Including the optional itemLogoUrl will also set the value of the stream&rsquo;s items&rsquo; logoUrl values in item responses.</aside>
 
 <h3 id="response">Response</h3>
 
@@ -3167,6 +3184,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -d <span class="s1">'{
        "title": "Test Stream 01",
        "description": "Description 01",
+       "itemLogoUrl": "https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png",
        "ownerId": "55414a36e4b0436b6280e668",
        "source": {
            "uri": "http://slashdot.org/rss",
@@ -3191,6 +3209,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Stream 01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55414a36e4b0436b6280e668"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Description 01"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"itemLogoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/path_to_logo/to_use/to_initialize/items_logoUrl.png"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSS"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://slashdot.org/rss"</span><span class="p">,</span><span class="w">
@@ -3242,6 +3261,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>No</td>
 <td>String</td>
 <td>n/a</td>
+</tr>
+<tr>
+<td>itemLogoUrl</td>
+<td>value to use to initialize item.logoUrl</td>
+<td>No</td>
+<td>String</td>
+<td><code class="prettyprint">null</code></td>
 </tr>
 <tr>
 <td>ownerId</td>
@@ -3341,6 +3367,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <aside class="notice">All categories or stream tags can be removed by sending an empty categoryIds or tagIds array (<code>"categoryIds": []</code>)</aside>
 
 <aside class="notice">If updating a secured source, all source fields must be sent (uri, username and password). If no username or password is supplied, but a source uri is, then any existing credentials will be removed.</aside>
+
+<aside class="notice">Including the optional itemLogoUrl will also set the value of the stream&rsquo;s items&rsquo; logoUrl values in item responses.</aside>
 
 <h3 id="response">Response</h3>
 
@@ -3845,6 +3873,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/set_by_streams/itemLogoUrl.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3916,6 +3945,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
+<aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
+
 <h2 id="get-users-userid-saveditems">GET /users/{userId}/savedItems</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/items
 </code></pre>
@@ -3948,6 +3979,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/set_by_streams/itemLogoUrl.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -4018,6 +4050,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>Status code <code class="prettyprint">200</code></p>
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+
+<aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
 <h2 id="get-users-userid-streams">GET /users/{userId}/streams</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
