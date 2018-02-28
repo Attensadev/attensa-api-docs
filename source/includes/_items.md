@@ -30,6 +30,9 @@ curl -u username:password https://localhost:8000/items
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
       "logoUrl": "https://example.com/set_by_streams/itemLogoUrl.png",
+      "commentsCount": 0,
+      "likesCount": 0,
+      "readersCount": 0,
       "_links": {
         "self": "https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"
       }
@@ -95,6 +98,9 @@ curl -u username:password https://api.attensa.net/items/{itemId}
   "streamId": "55773111e4b08d8c914d7d1a",
   "streamOriginId": "55773111e4b08d8c914d7d1a",
   "streamOriginTitle": "All the facts in Latin",
+  "commentsCount": 0,
+  "likesCount": 0,
+  "readersCount": 0,
   "_links": {
     "self": "https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"
   }

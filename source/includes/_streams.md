@@ -186,7 +186,10 @@ curl -u username:password https://api.attensa.net/streams/{streamId}/items
       "streamId": "55773111e4b08d8c914d7d1a",
       "streamOriginId": "55773111e4b08d8c914d7d1a",
       "streamOriginTitle": "All the facts in Latin",
-      "logoUrl": "https://example.com/initialized_based_on_value_of/stream_item_logo_url.png"
+      "logoUrl": "https://example.com/initialized_based_on_value_of/stream_item_logo_url.png",
+      "commentsCount": 0,
+      "likesCount": 0,
+      "readersCount": 0,
       "_links": {
         "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
       }
@@ -218,7 +221,7 @@ Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
-If the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="warning">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
 
 ## GET /streams/{streamId}/users
 
