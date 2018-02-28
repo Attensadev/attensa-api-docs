@@ -128,6 +128,9 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "likedByUser": false,
       "readByUser": false,
       "savedByUser": true,
+      "commentsCount": 0,
+      "likesCount": 0,
+      "readersCount": 0,
       "_links": {
         "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
       }
@@ -197,6 +200,9 @@ curl -u username:password https://api.attensa.net/users/{userId}/items
       "likedByUser": false,
       "readByUser": false,
       "savedByUser": true,
+      "commentsCount": 0,
+      "likesCount": 0,
+      "readersCount": 0,
       "_links": {
         "self": "https://api.attensa.net/items/5421214ba4b0fd12d834a223"
       }
