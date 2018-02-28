@@ -3,7 +3,7 @@
 ## GET /items
 
 ```shell
-curl -u username:password https://localhost:8000/items
+curl -u username:password https://api.attensa.net/items
 ```
 
 > The above command returns JSON structured like this:
@@ -63,6 +63,7 @@ sort | Field to sort the results on | No | created, modified or published | publ
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 streamIds | Filter results to streamIds in list | No | comma separated ID list | `null`
 userId | Annotate response with user specific info | No | `null`
+includeComments | Field to request comments in response | No | boolean | false
 includeReadItems | Field to request items read by user | No | boolean | true
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
@@ -73,8 +74,8 @@ Status code `200`
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
 <aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
-
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 ## GET /items/{itemId}
 
@@ -101,6 +102,22 @@ curl -u username:password https://api.attensa.net/items/{itemId}
   "commentsCount": 0,
   "likesCount": 0,
   "readersCount": 0,
+  "comments": [
+    {
+      "id": "5a944d63e4b09d729edf2fd8",
+       "body": "Text body of the comment",
+       "created": "2018-01-26T18:09:39.207Z",
+       "userId": "54177bb3e4d3fc6238a83bef",
+       "userFullName": "Firstname Lastname"
+    },
+    {
+      "id": "5a96c89ee4b075c1b10ac847",
+      "body": "Testing adding a comment via customer api",
+      "created": "2018-01-28T15:19:58.998Z",
+      "userId": "5a173db3d3b0ff0238a83bee",
+      "userFullName": "First Last"
+    }
+  ],
   "_links": {
     "self": "https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"
   }
