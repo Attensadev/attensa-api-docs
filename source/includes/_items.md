@@ -127,6 +127,48 @@ Status code `200`
 <aside class="notice">When the `userId` parameter is used, the user will be added to the item's reader list.</aside>
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
+## POST /items/{itemId}/comments
+
+```shell
+curl -u username:password \
+     -H "Content-Type: application/json" \
+     -X POST \
+     -d '{
+       "userId": "559bf709e4b008a9a53293c3",
+       "body": "Comment text"
+     }' \
+     https://api.attensa.net/items/{itemId}/comments
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "5a973318e4b00e62bf99334b",
+    "body": "Comment text",
+    "created": "2018-01-28T22:54:16.329Z",
+    "userId": "559bf709e4b008a9a53293c3",
+    "userFullName": "Firstname Lastname"
+}
+```
+
+This endpoint creates a new user.
+
+### Request
+
+`POST https://api.attensa.com/items/{itemId}/comments`
+
+### JSON request properties
+
+Parameter | Description | Required | Format | Default
+--------- | ----------- | -------- | ------ | -------
+userId | Id of the liking user | Yes | String | n/a
+body | Comment text | Yes | String | n/a
+
+### Response
+
+Status code `201`
+
 ## POST /items/{itemId}/likes
 
 ```shell
@@ -183,7 +225,26 @@ userId | Id of reading user | Yes | String | n/a
 
 ### Response
 
-Status code `204`
+Status code `204` with empty body
+
+## DELETE /items/{itemId}/comments/{commentId}
+
+```shell
+curl -u username:password \
+     -X DELETE \
+     https://api.attensa.net/items/{itemId}/comments/{commentId}
+```
+> 204 empty body returned on success
+
+Remove comment from the item.
+
+### Request
+
+`DELETE https://api.attensa.net/items/{itemId}/comments/{commentId}`
+
+### Response
+
+Status code `204` with empty body
 
 ## DELETE /items/{itemId}/likes/{userId}
 
