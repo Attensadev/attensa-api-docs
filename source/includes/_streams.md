@@ -213,6 +213,7 @@ rows | Number of users in each page | No | Integer | 20
 sort | Field to sort the results on | No | created, modified or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 userId | Annotate response with user specific info | No | `null`
+includeComments | Field to request comments in response | No | boolean | false
 includeFullDescription | Field to request full descriptions | No | boolean | false
 
 ### Response
@@ -221,7 +222,8 @@ Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property
 
-<aside class="warning">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 ## GET /streams/{streamId}/users
 
