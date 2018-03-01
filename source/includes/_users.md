@@ -161,7 +161,7 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
-See [GET /items](#get-items) for an example of the comments json.
+See [GET /items/{itemId}](#get-items-itemid) for an example of the comments json.
 
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
@@ -235,7 +235,7 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 Status code `200`
 
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
-See [GET /items](#get-items) for an example of the comments json.
+See [GET /items/{itemId}](#get-items-itemid) for an example of the comments json.
 
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
