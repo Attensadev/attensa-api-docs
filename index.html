@@ -2182,13 +2182,12 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
+See <a href="#get-items">GET /items</a> for an example of the comments json.</p>
 
 <aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
-
-<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-items-itemid">GET /items/{itemId}</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>
@@ -2836,11 +2835,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
+See <a href="#get-items">GET /items</a> for an example of the comments json.</p>
 
 <aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
-
-<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
@@ -4061,11 +4059,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
+See <a href="#get-items">GET /items</a> for an example of the comments json.</p>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
-
-<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-users-userid-saveditems">GET /users/{userId}/savedItems</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/items
@@ -4179,11 +4176,10 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
+<p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
+See <a href="#get-items">GET /items</a> for an example of the comments json.</p>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
-
-<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-users-userid-streams">GET /users/{userId}/streams</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
