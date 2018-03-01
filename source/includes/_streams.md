@@ -220,10 +220,10 @@ includeFullDescription | Field to request full descriptions | No | boolean | fal
 
 Status code `200`
 
-See the [paging metadata specification](#paging-format) for more information on the `_paging` property
+See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
+See [GET /items](#get-items) for an example of the comments json.
 
 <aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
-<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 ## GET /streams/{streamId}/users
 
