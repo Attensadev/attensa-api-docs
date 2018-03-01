@@ -2052,7 +2052,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
           <h1 id="items">Items</h1>
 
 <h2 id="get-items">GET /items</h2>
-<pre class="highlight shell"><code>curl -u username:password https://localhost:8000/items
+<pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/items
 </code></pre>
 
 <blockquote>
@@ -2079,6 +2079,9 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/set_by_streams/itemLogoUrl.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -2153,6 +2156,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td></td>
 </tr>
 <tr>
+<td>includeComments</td>
+<td>Field to request comments in response</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>includeReadItems</td>
 <td>Field to request items read by user</td>
 <td>No</td>
@@ -2178,6 +2188,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
+
 <h2 id="get-items-itemid">GET /items/{itemId}</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>
 </code></pre>
@@ -2198,6 +2210,25 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a944d63e4b09d729edf2fd8"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text body of the comment"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-26T18:09:39.207Z"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54177bb3e4d3fc6238a83bef"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"userFullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Lastname"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a96c89ee4b075c1b10ac847"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing adding a comment via customer api"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28T15:19:58.998Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a173db3d3b0ff0238a83bee"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userFullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Last"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5937ed4ce4b0dde7e4aee583"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2239,6 +2270,66 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <aside class="notice">When the `userId` parameter is used, the user will be added to the item&rsquo;s reader list.</aside>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
+
+<h2 id="post-items-itemid-comments">POST /items/{itemId}/comments</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">'{
+       "userId": "559bf709e4b008a9a53293c3",
+       "body": "Comment text"
+     }'</span> <span class="se">\</span>
+     https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>/comments
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a973318e4b00e62bf99334b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment text"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28T22:54:16.329Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"559bf709e4b008a9a53293c3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userFullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Lastname"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint creates a new user.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://api.attensa.com/items/{itemId}/comments</code></p>
+
+<h3 id="json-request-properties">JSON request properties</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+<th>Format</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Id of the liking user</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>body</td>
+<td>Comment text</td>
+<td>Yes</td>
+<td>String</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">201</code></p>
 
 <h2 id="post-items-itemid-likes">POST /items/{itemId}/likes</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -2326,7 +2417,27 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <h3 id="response">Response</h3>
 
-<p>Status code <code class="prettyprint">204</code></p>
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
+
+<h2 id="delete-items-itemid-comments-commentid">DELETE /items/{itemId}/comments/{commentId}</h2>
+<pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
+     -X DELETE <span class="se">\</span>
+     https://api.attensa.net/items/<span class="o">{</span>itemId<span class="o">}</span>/comments/<span class="o">{</span>commentId<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>204 empty body returned on success</p>
+</blockquote>
+
+<p>Remove comment from the item.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE https://api.attensa.net/items/{itemId}/comments/{commentId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Status code <code class="prettyprint">204</code> with empty body</p>
 
 <h2 id="delete-items-itemid-likes-userid">DELETE /items/{itemId}/likes/{userId}</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -2641,8 +2752,11 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"streamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55773111e4b08d8c914d7d1a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamOriginTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All the facts in Latin"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/initialized_based_on_value_of/stream_item_logo_url.png"</span><span class="w">
-      </span><span class="s2">"_links"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/initialized_based_on_value_of/stream_item_logo_url.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5421214ba4b0fd12d834a223"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2703,6 +2817,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td></td>
 </tr>
 <tr>
+<td>includeComments</td>
+<td>Field to request comments in response</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>includeFullDescription</td>
 <td>Field to request full descriptions</td>
 <td>No</td>
@@ -2717,7 +2838,9 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
-<p>If the <code class="prettyprint">userId</code> parameter is used, three properties are added to the normal item objects returned in the <code class="prettyprint">items</code> array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside></p>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
@@ -3862,6 +3985,9 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5421214ba4b0fd12d834a223"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -3916,6 +4042,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>DESC</td>
 </tr>
 <tr>
+<td>includeComments</td>
+<td>Field to request comments in response</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>includeFullDescription</td>
 <td>Field to request full descriptions</td>
 <td>No</td>
@@ -3931,6 +4064,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
+
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-users-userid-saveditems">GET /users/{userId}/savedItems</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/users/<span class="o">{</span>userId<span class="o">}</span>/items
@@ -3968,6 +4103,9 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/items/5421214ba4b0fd12d834a223"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -4022,6 +4160,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>DESC</td>
 </tr>
 <tr>
+<td>includeComments</td>
+<td>Field to request comments in response</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>includeFullDescription</td>
 <td>Field to request full descriptions</td>
 <td>No</td>
@@ -4037,6 +4182,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property</p>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
+
+<aside class="notice">See [GET /items](#get-items) for an example of the comments json.</aside>
 
 <h2 id="get-users-userid-streams">GET /users/{userId}/streams</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
