@@ -59,7 +59,7 @@ Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
 page | The page number to retrieve | No | Integer | 0
 rows | Number of items in each page | No | Integer | 20
-sort | Field to sort the results on | No | created, modified or published | published
+sort | Field to sort the results on | No | attentionRank, created, modified or published | published
 sortDirection | Sort ascending or descending | No | ASC or DESC | DESC
 streamIds | Filter results to streamIds in list | No | comma separated ID list | `null`
 userId | Annotate response with user specific info | No | `null`
@@ -74,7 +74,7 @@ Status code `200`
 See the [paging metadata specification](#paging-format) for more information on the `_paging` property.
 See [GET /items/{itemId}](#get-items-itemid) for an example of the comments json.
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: attentionRank, likedByUser, readByUser and savedByUser.</aside>
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
 ## GET /items/{itemId}
@@ -140,7 +140,7 @@ userId | Annotate response with user specific info | No | `null`
 
 Status code `200`
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user's relationship with the item: attentionRank, likedByUser, readByUser and savedByUser.</aside>
 <aside class="notice">When the `userId` parameter is used, the user will be added to the item's reader list.</aside>
 <aside class="notice">logoUrl is set based on the value of item's stream's itemLogoUrl value.</aside>
 
