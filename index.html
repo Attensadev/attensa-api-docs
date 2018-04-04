@@ -2131,7 +2131,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>sort</td>
 <td>Field to sort the results on</td>
 <td>No</td>
-<td>created, modified or published</td>
+<td>attentionRank, created, modified or published</td>
 <td>published</td>
 </tr>
 <tr>
@@ -2185,7 +2185,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
 See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the comments json.</p>
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: attentionRank, likedByUser, readByUser and savedByUser.</aside>
 
 <aside class="notice">logoUrl is set based on the value of item&rsquo;s stream&rsquo;s itemLogoUrl value.</aside>
 
@@ -2264,7 +2264,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
 
 <p>Status code <code class="prettyprint">200</code></p>
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: attentionRank, likedByUser, readByUser and savedByUser.</aside>
 
 <aside class="notice">When the `userId` parameter is used, the user will be added to the item&rsquo;s reader list.</aside>
 
@@ -2798,7 +2798,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
 <td>sort</td>
 <td>Field to sort the results on</td>
 <td>No</td>
-<td>created, modified or published</td>
+<td>attentionaRank, created, modified or published</td>
 <td>published</td>
 </tr>
 <tr>
@@ -2838,7 +2838,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
 <p>See the <a href="#paging-format">paging metadata specification</a> for more information on the <code class="prettyprint">_paging</code> property.
 See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the comments json.</p>
 
-<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: likedByUser, readByUser and savedByUser.</aside>
+<aside class="notice">When the `userId` parameter is used, three properties are added to the normal item objects returned in the `items` array that specify the user&rsquo;s relationship with the item: attentionRank, likedByUser, readByUser and savedByUser.</aside>
 
 <h2 id="get-streams-streamid-users">GET /streams/{streamId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password https://api.attensa.net/streams/<span class="o">{</span>streamId<span class="o">}</span>/users
@@ -3983,6 +3983,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attentionRank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4029,7 +4030,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
 <td>sort</td>
 <td>Field to sort the results on</td>
 <td>No</td>
-<td>created, modified or published</td>
+<td>attentionRank, created, modified or published</td>
 <td>published</td>
 </tr>
 <tr>
@@ -4100,6 +4101,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
       </span><span class="nt">"likedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"savedByUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attentionRank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commentsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"likesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"readersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4146,7 +4148,7 @@ See <a href="#get-items-itemid">GET /items/{itemId}</a> for an example of the co
 <td>sort</td>
 <td>Field to sort the results on</td>
 <td>No</td>
-<td>created, modified or published</td>
+<td>attentionRank, created, modified or published</td>
 <td>published</td>
 </tr>
 <tr>
