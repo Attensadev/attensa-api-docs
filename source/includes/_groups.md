@@ -367,7 +367,7 @@ name | Name of the group | Yes | String | n/a
 
 Status code `201`
 
-<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 ## POST /groups/{groupId}/users
 
@@ -436,7 +436,8 @@ curl -u username:password \
      -d '{
        "creatorId": "56161che546097aa51621b47"
        "description": "just a test group",
-       "name": "test"
+       "name": "test",
+       "autoAddNewUsers": true
      }' \
      https://api.attensa.net/groups/{groupId}
 ```
@@ -450,6 +451,7 @@ curl -u username:password \
   "name": "test",
   "streamCount": 0,
   "userCount": 0,
+  "autoAddNewUsers": true
   "_links": {
     "self": "http://localhost/groups/55161cf7e4b097aa51621b47"
   }
@@ -466,6 +468,7 @@ Update an existing group. Updates are applied in a incremental PATCH-like manner
 
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
+autoAddNewUsers | Flag to track whether new users should be added to group | No | boolean | false
 creatorId | Id of the user that should be marked as creator | No | String | n/a
 description | Description of the group | No | String | n/a
 name | Name of the group | No | String | n/a
@@ -473,6 +476,8 @@ name | Name of the group | No | String | n/a
 ### Response
 
 Status code `200`
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 ## DELETE /groups/{groupId}
 
