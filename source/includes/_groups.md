@@ -8,6 +8,7 @@ curl -u username:password \
      -d rows=20 \
      -d page=0 \
      -d term=test \
+     -d autoAddNewUsers=true \
      https://api.attensa.net/groups
 ```
 > Status code 200 with response as follows:
@@ -32,6 +33,7 @@ curl -u username:password \
       "name": "test",
       "streamCount": 5,
       "userCount": 192,
+      "autoAddNewUsers": true,
       "_links": {
           "self": "https://api.attensa.net/groups/55161cf7e4b097aa51621b47"
       }
@@ -53,6 +55,7 @@ Parameter | Description | Required | Format | Default
 page | The page number to retrieve | No | Integer | 0
 rows | Number of groups in each page | No | Integer | 20
 term | A search term to narrow the list of groups returned | No | String | `null`
+autoAddNewUsers | Filters groups list to groups where autoAddNewUsers is set to true | No | Boolean | `null`
 
 ### Response
 
@@ -355,6 +358,7 @@ Create a new group.
 
 Parameter | Description | Required | Format | Default
 --------- | ----------- | -------- | ------ | -------
+autoAddNewUsers | Flag to track whether new users should be added to group | No | boolean | false
 creatorId | Id of the user that should be marked as creator | Yes | String | n/a
 description | Description of the group | Yes | String | n/a
 name | Name of the group | Yes | String | n/a
@@ -362,6 +366,8 @@ name | Name of the group | Yes | String | n/a
 ### Response
 
 Status code `201`
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via [GET /groups?autoAddNewUsers](#get-groups) and users will need to be added to each group via [POST /groups/{groupId}/users](#post-groups-groupid-users). </aside>
 
 ## POST /groups/{groupId}/users
 
