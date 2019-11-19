@@ -460,8 +460,6 @@ curl -u username:password \
 
 Update an existing group. Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.
 
-<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
-
 ### Request
 
 `PUT https://api.attensa.net/groups`
@@ -478,6 +476,8 @@ name | Name of the group | No | String | n/a
 ### Response
 
 Status code `200`
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 ## DELETE /groups/{groupId}
 
