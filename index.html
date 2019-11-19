@@ -1843,7 +1843,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Status code <code class="prettyprint">201</code></p>
 
-<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 <h2 id="post-groups-groupid-users">POST /groups/{groupId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
@@ -1940,7 +1940,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -d <span class="s1">'{
        "creatorId": "56161che546097aa51621b47"
        "description": "just a test group",
-       "name": "test"
+       "name": "test",
+       "autoAddNewUsers": true
      }'</span> <span class="se">\</span>
      https://api.attensa.net/groups/<span class="o">{</span>groupId<span class="o">}</span>
 </code></pre>
@@ -1955,13 +1956,16 @@ Categories can be moved from the top level down to sub-categories and vice versa
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"streamCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"userCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"autoAddNewUsers"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/groups/55161cf7e4b097aa51621b47"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>Update an existing group. Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.</p>
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 <h3 id="request">Request</h3>
 
@@ -1978,6 +1982,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <th>Default</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>autoAddNewUsers</td>
+<td>Flag to track whether new users should be added to group</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
 <tr>
 <td>creatorId</td>
 <td>Id of the user that should be marked as creator</td>
