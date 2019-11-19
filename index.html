@@ -1965,8 +1965,6 @@ Categories can be moved from the top level down to sub-categories and vice versa
 
 <p>Update an existing group. Updates are applied in a incremental PATCH-like manner, so the entire group resource does not need to be supplied, only the properties that are changing.</p>
 
-<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
-
 <h3 id="request">Request</h3>
 
 <p><code class="prettyprint">PUT https://api.attensa.net/groups</code></p>
@@ -2015,6 +2013,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">200</code></p>
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group when users are created via <code>POST /users</code>. The groups that have autoAddNewUsers set will need to be retrieved via <code>GET /groups?autoAddNewUsers=true</code> and new users will need to be added to each group via <code>POST /groups/{groupId}/users</code>. </aside>
 
 <h2 id="delete-groups-groupid">DELETE /groups/{groupId}</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
