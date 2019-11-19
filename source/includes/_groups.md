@@ -367,7 +367,7 @@ name | Name of the group | Yes | String | n/a
 
 Status code `201`
 
-<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via [GET /groups?autoAddNewUsers](#get-groups) and users will need to be added to each group via [POST /groups/{groupId}/users](#post-groups-groupid-users). </aside>
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via GET /groups?autoAddNewUsers and new users will need to be added to each group via POST /groups/{groupId}/users. </aside>
 
 ## POST /groups/{groupId}/users
 
