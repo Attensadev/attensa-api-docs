@@ -17,11 +17,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -1344,6 +1344,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
      -d <span class="nv">rows</span><span class="o">=</span>20 <span class="se">\</span>
      -d <span class="nv">page</span><span class="o">=</span>0 <span class="se">\</span>
      -d <span class="nv">term</span><span class="o">=</span><span class="nb">test</span> <span class="se">\</span>
+     -d <span class="nv">autoAddNewUsers</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
      https://api.attensa.net/groups
 </code></pre>
 
@@ -1369,6 +1370,7 @@ Categories can be moved from the top level down to sub-categories and vice versa
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"streamCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">192</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"autoAddNewUsers"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.attensa.net/groups/55161cf7e4b097aa51621b47"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1413,6 +1415,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <td>A search term to narrow the list of groups returned</td>
 <td>No</td>
 <td>String</td>
+<td><code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td>autoAddNewUsers</td>
+<td>Filters groups list to groups where autoAddNewUsers is set to true</td>
+<td>No</td>
+<td>Boolean</td>
 <td><code class="prettyprint">null</code></td>
 </tr>
 </tbody></table>
@@ -1801,6 +1810,13 @@ Categories can be moved from the top level down to sub-categories and vice versa
 </tr>
 </thead><tbody>
 <tr>
+<td>autoAddNewUsers</td>
+<td>Flag to track whether new users should be added to group</td>
+<td>No</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
 <td>creatorId</td>
 <td>Id of the user that should be marked as creator</td>
 <td>Yes</td>
@@ -1826,6 +1842,8 @@ Categories can be moved from the top level down to sub-categories and vice versa
 <h3 id="response">Response</h3>
 
 <p>Status code <code class="prettyprint">201</code></p>
+
+<aside class="notice">When autoAddNewUsers is set to true, new users will not be added to the group. The groups that have autoAddNewUsers set will need to be retrieved via GET /groups?autoAddNewUsers and new users will need to be added to each group via POST /groups/{groupId}/users. </aside>
 
 <h2 id="post-groups-groupid-users">POST /groups/{groupId}/users</h2>
 <pre class="highlight shell"><code>curl -u username:password <span class="se">\</span>
