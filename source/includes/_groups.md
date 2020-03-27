@@ -142,7 +142,7 @@ This endpoint retrieves a paged list of users in a certain group.
 
 ### Request
 
-`GET https://api.attensa.com/users`
+`GET https://api.attensa.net/users`
 
 ### Request query parameters
 
@@ -214,7 +214,7 @@ This endpoint retrieves a paged list of streams that a group follows.
 
 ### Request
 
-`GET https://api.attensa.com/streams`
+`GET https://api.attensa.net/streams`
 
 ### Request query parameters
 
@@ -303,7 +303,7 @@ This endpoint retrives a list of briefings that a user is subscribed to
 
 ### Request
 
-`GET https://api.attensa.com/groups/{groupId}/briefings`
+`GET https://api.attensa.net/groups/{groupId}/briefings`
 
 ### Request query parameters
 

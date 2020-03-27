@@ -51,7 +51,7 @@ This endpoint retrieves a paged list of items.
 
 ### Request
 
-`GET https://api.attensa.com/items`
+`GET https://api.attensa.net/items`
 
 ### Request query parameters
 
@@ -128,7 +128,7 @@ This endpoint retrieves a specific item.
 
 ### Request
 
-`GET https://api.attensa.com/items/{itemId}`
+`GET https://api.attensa.net/items/{itemId}`
 
 ### Request query parameters
 
@@ -173,7 +173,7 @@ This endpoint creates a new user.
 
 ### Request
 
-`POST https://api.attensa.com/items/{itemId}/comments`
+`POST https://api.attensa.net/items/{itemId}/comments`
 
 ### JSON request properties
 

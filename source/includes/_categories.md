@@ -31,7 +31,7 @@ This endpoint retrieves a list of categories available to put streams into.
 
 ### Request
 
-`GET https://api.attensa.com/categories`
+`GET https://api.attensa.net/categories`
 
 ### Response
 

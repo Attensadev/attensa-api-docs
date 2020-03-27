@@ -261,7 +261,7 @@ Get a paged list of streams in the briefing.
 
 ### Request
 
-`GET https://api.attensa.com/briefings/{briefingId}/streams`
+`GET https://api.attensa.net/briefings/{briefingId}/streams`
 
 ### Request query parameters
 
