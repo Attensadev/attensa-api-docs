@@ -87,7 +87,7 @@ Retrieve a paged list of streams that are tagged with a certain stream tag.
 
 ### Request
 
-`GET https://api.attensa.com/streamTags/{tagId}/streams`
+`GET https://api.attensa.net/streamTags/{tagId}/streams`
 
 ### Request query parameters
 

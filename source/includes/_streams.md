@@ -77,7 +77,7 @@ Get a paged list of streams.
 
 ### Request
 
-`GET https://api.attensa.com/streams`
+`GET https://api.attensa.net/streams`
 
 ### Request query parameters
 

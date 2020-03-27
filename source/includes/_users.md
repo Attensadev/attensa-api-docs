@@ -39,7 +39,7 @@ This endpoint retrieves a paged list of users.
 
 ### Request
 
-`GET https://api.attensa.com/users`
+`GET https://api.attensa.net/users`
 
 ### Request query parameters
 
@@ -85,7 +85,7 @@ This endpoint retrieves a specific user.
 
 ### Request
 
-`GET https://api.attensa.com/users/{userId}`
+`GET https://api.attensa.net/users/{userId}`
 
 ### Response
 
@@ -297,7 +297,7 @@ This endpoint retrives a list of streams that a user is following.
 
 ### Request
 
-`GET https://api.attensa.com/users/{userId}/streams`
+`GET https://api.attensa.net/users/{userId}/streams`
 
 ### Request query parameters
 
@@ -373,7 +373,7 @@ This endpoint retrives a list of briefings that a user is subscribed to
 
 ### Request
 
-`GET https://api.attensa.com/users/{userId}/briefings`
+`GET https://api.attensa.net/users/{userId}/briefings`
 
 ### Request query parameters
 
@@ -429,7 +429,7 @@ This endpoint creates a new user.
 
 ### Request
 
-`POST https://api.attensa.com/users`
+`POST https://api.attensa.net/users`
 
 ### JSON request properties
 
@@ -463,7 +463,7 @@ Have a user follow a stream and optionally subscribe to the streams briefing.
 
 ### Request
 
-`POST https://api.attensa.com/users/{userId}/briefings`
+`POST https://api.attensa.net/users/{userId}/briefings`
 
 ### Request body parameters
 
@@ -520,7 +520,7 @@ Have a user follow a stream.
 
 ### Request
 
-`POST https://api.attensa.com/users/{userId}/streams`
+`POST https://api.attensa.net/users/{userId}/streams`
 
 ### Request body parameters
 
@@ -572,7 +572,7 @@ This endpoint updates an existing user.
 
 ### Request
 
-`PUT https://api.attensa.com/users/{userId}`
+`PUT https://api.attensa.net/users/{userId}`
 
 ### JSON request properties
 No fields are required, but at least one must be provided for update. Updates are applied incrementally in a PATCH-like manner, so omitted fields will not be changed.
@@ -604,7 +604,7 @@ This endpoint deletes an existing user
 
 ### Request
 
-`DELETE https://api.attensa.com/users/{userId}`
+`DELETE https://api.attensa.net/users/{userId}`
 
 ### Response
 
@@ -623,7 +623,7 @@ This endpoint unsubscribes a user from a briefing.
 
 ### Request
 
-`DELETE https://api.attensa.com/users/{userId}/briefings/{briefingId}`
+`DELETE https://api.attensa.net/users/{userId}/briefings/{briefingId}`
 
 ### Response
 
@@ -642,7 +642,7 @@ This endpoint removes an item from a user's saved item list.
 
 ### Request
 
-`DELETE https://api.attensa.com/users/{userId}/savedItems/{itemId}`
+`DELETE https://api.attensa.net/users/{userId}/savedItems/{itemId}`
 
 ### Response
 
@@ -661,7 +661,7 @@ This endpoint unfollows a user from a stream.
 
 ### Request
 
-`DELETE https://api.attensa.com/users/{userId}/streams/{streamId}`
+`DELETE https://api.attensa.net/users/{userId}/streams/{streamId}`
 
 ### Response
 
